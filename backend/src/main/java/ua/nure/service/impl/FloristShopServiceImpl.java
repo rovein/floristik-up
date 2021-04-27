@@ -257,13 +257,17 @@ public class FloristShopServiceImpl implements FloristShopService {
             FloristShop floristShop) {
         floristShop.setEmail(floristShopDto.getEmail());
         floristShop.setPhoneNumber(floristShopDto.getPhoneNumber());
-        floristShop.setPassword(
-                bCryptPasswordEncoder.encode(floristShopDto.getPassword()));
         floristShop.setName(floristShopDto.getName());
         floristShop.setCreationDate(floristShopDto.getCreationDate());
         floristShop.setRole(roleService.findByName(UserRole.USER));
         floristShop.setCountry(floristShopDto.getCountry());
 
+        String password = floristShopDto.getPassword();
+        if (password.length() == 60) {
+            floristShop.setPassword(password);
+        } else {
+            floristShop.setPassword(bCryptPasswordEncoder.encode(password));
+        }
         return floristShop;
     }
 
