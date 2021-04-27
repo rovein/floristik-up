@@ -56,7 +56,7 @@ public class FloristShopController {
     @PutMapping
     @ApiOperation(value = "Updates the florist shop", nickname = "updateFloristShop")
     public ResponseEntity<?> updateFloristShop(
-            @Valid @RequestBody FloristShopDto floristShopDto,
+            @RequestBody FloristShopDto floristShopDto,
             BindingResult bindingResult
     ) {
         if (bindingResult.hasErrors()) {
