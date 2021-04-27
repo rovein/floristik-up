@@ -23,6 +23,9 @@ import java.util.*;
 @Service
 public class FloristShopServiceImpl implements FloristShopService {
 
+    public static final int HASHED_PASSWORD_LENGTH = 60;
+    public static final double ZERO = 0.0;
+
     @Autowired
     private FloristShopRepository floristShopRepository;
 
@@ -237,19 +240,19 @@ public class FloristShopServiceImpl implements FloristShopService {
 
     private void setIndicators(SmartSystem smartSystem) {
         if (smartSystem.getSatisfactionFactor() == null) {
-            smartSystem.setSatisfactionFactor(0.0);
+            smartSystem.setSatisfactionFactor(ZERO);
         }
 
         if (smartSystem.getAirQuality() == null) {
-            smartSystem.setAirQuality(0.0);
+            smartSystem.setAirQuality(ZERO);
         }
 
         if (smartSystem.getHumidity() == null) {
-            smartSystem.setHumidity(0.0);
+            smartSystem.setHumidity(ZERO);
         }
 
         if (smartSystem.getTemperature() == null) {
-            smartSystem.setTemperature(0.0);
+            smartSystem.setTemperature(ZERO);
         }
     }
 
@@ -263,7 +266,7 @@ public class FloristShopServiceImpl implements FloristShopService {
         floristShop.setCountry(floristShopDto.getCountry());
 
         String password = floristShopDto.getPassword();
-        if (password.length() == 60) {
+        if (password.length() == HASHED_PASSWORD_LENGTH) {
             floristShop.setPassword(password);
         } else {
             floristShop.setPassword(bCryptPasswordEncoder.encode(password));
