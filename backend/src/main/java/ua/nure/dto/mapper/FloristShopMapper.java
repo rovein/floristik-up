@@ -14,6 +14,7 @@ public class FloristShopMapper {
                 .setPassword(floristShop.getPassword())
                 .setName(floristShop.getName())
                 .setCreationDate(floristShop.getCreationDate())
+                .setCountry(floristShop.getCountry())
                 .setRole(UserRole.USER);
     }
 

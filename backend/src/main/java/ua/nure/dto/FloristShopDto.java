@@ -34,5 +34,7 @@ public class FloristShopDto {
 
     private Date creationDate;
 
+    private String country;
+
     private UserRole role;
 }

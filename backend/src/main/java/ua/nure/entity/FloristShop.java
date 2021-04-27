@@ -37,6 +37,9 @@ public class FloristShop extends User {
     @Column(name = "creation_date")
     private Date creationDate;
 
+    @Column(name = "country")
+    private String country;
+
     @OneToMany(mappedBy = "floristShop", fetch = FetchType.EAGER)
     Set<StorageRoom> storageRooms;
 

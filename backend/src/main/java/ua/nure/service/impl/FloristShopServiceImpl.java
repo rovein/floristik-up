@@ -262,6 +262,7 @@ public class FloristShopServiceImpl implements FloristShopService {
         floristShop.setName(floristShopDto.getName());
         floristShop.setCreationDate(floristShopDto.getCreationDate());
         floristShop.setRole(roleService.findByName(UserRole.USER));
+        floristShop.setCountry(floristShopDto.getCountry());
 
         return floristShop;
     }
