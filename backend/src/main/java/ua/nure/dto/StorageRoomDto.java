@@ -19,6 +19,8 @@ public class StorageRoomDto {
 
     private Integer maxCapacity;
 
+    private Integer actualCapacity;
+
     private SmartSystemDto smartDevice;
 
 }

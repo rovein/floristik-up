@@ -11,6 +11,7 @@ public class StorageRoomMapper {
                 .setCity(storageRoom.getCity())
                 .setStreet(storageRoom.getStreet())
                 .setHouse(storageRoom.getHouse())
+                .setActualCapacity(storageRoom.getActualCapacity())
                 .setMaxCapacity(storageRoom.getMaxCapacity())
                 .setSmartDevice(SmartSystemMapper.toSmartSystemDto(storageRoom.getSmartSystem()));
     }

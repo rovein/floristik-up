@@ -193,10 +193,8 @@ public class FloristShopServiceImpl implements FloristShopService {
                         return temperature > minTemperature
                                 && temperature < maxTemperature;
                     }).filter(room -> {
-                        int actualAmount = room.getFlowerStorages().stream()
-                                .mapToInt(FlowerStorage::getAmount).sum();
-                        int newAmount =
-                                actualAmount + flowerStorage.getAmount();
+                        int actualAmount = room.getActualCapacity();
+                        int newAmount = actualAmount + flowerStorage.getAmount();
                         int maxAmount = room.getMaxCapacity();
                         return newAmount < maxAmount;
                     }).findAny().ifPresent(newStorageRoom -> {

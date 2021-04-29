@@ -67,4 +67,8 @@ public class StorageRoom {
         flowerStorages.remove(flowerStorage);
     }
 
+    public int getActualCapacity() {
+        return flowerStorages.stream().mapToInt(FlowerStorage::getAmount).sum();
+    }
+
 }
