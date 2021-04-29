@@ -1,4 +1,4 @@
-package ua.nure.entity;
+package ua.nure.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import ua.nure.entity.Flower;
+import ua.nure.entity.StorageRoom;
 
 import java.util.Date;
 import javax.persistence.Column;

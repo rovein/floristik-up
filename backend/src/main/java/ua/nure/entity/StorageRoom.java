@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import ua.nure.entity.user.FlowerStorage;
 
 import java.util.Set;
 import javax.persistence.CascadeType;

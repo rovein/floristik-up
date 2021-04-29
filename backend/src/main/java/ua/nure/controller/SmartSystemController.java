@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.nure.dto.SmartSystemDto;
 import ua.nure.dto.StorageRoomDto;
-import ua.nure.entity.FlowerStorage;
+import ua.nure.entity.user.FlowerStorage;
 import ua.nure.service.FloristShopService;
 
 import java.util.List;

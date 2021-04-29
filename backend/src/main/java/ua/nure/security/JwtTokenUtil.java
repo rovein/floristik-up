@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ua.nure.entity.User;
+import ua.nure.entity.user.User;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ua.nure.dto.FlowerStorageInfoDto;
-import ua.nure.entity.FlowerStorage;
+import ua.nure.entity.user.FlowerStorage;
 
 import java.util.Set;
 

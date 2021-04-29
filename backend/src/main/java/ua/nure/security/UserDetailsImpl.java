@@ -3,7 +3,7 @@ package ua.nure.security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ua.nure.entity.User;
+import ua.nure.entity.user.User;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import ua.nure.dto.FloristShopDto;
 import ua.nure.dto.auth.LoginDto;
 import ua.nure.dto.auth.TokenDto;
-import ua.nure.entity.User;
+import ua.nure.entity.user.User;
 import ua.nure.security.JwtTokenUtil;
 import ua.nure.security.UserDetailsImpl;
-import ua.nure.service.FlowerService;
 import ua.nure.service.FloristShopService;
 
 import javax.validation.Valid;
