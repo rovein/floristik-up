@@ -35,8 +35,11 @@ public class FlowerServiceImpl implements FlowerService {
     public FlowerDto update(FlowerDto flowerDto) {
         Optional<Flower> flowerByID = flowerRepository.findById(flowerDto.getId());
 
-        return flowerByID.map(flower -> FlowerMapper
-                .toFlowerDto(flowerRepository.save(flower))).orElse(null);
+        if (flowerByID.isPresent()) {
+            return FlowerMapper.toFlowerDto(flowerRepository.save(FlowerMapper.toFlower(flowerDto)));
+        }
+
+        return null;
     }
 
     @Override
