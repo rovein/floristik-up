@@ -1,7 +1,8 @@
-package ua.nure.entity;
+package ua.nure.entity.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ua.nure.entity.Role;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;

@@ -3,7 +3,7 @@ package ua.nure.service;
 import ua.nure.dto.FloristShopDto;
 import ua.nure.dto.SmartSystemDto;
 import ua.nure.dto.StorageRoomDto;
-import ua.nure.entity.FlowerStorage;
+import ua.nure.entity.user.FlowerStorage;
 
 import java.util.List;
 import java.util.Set;

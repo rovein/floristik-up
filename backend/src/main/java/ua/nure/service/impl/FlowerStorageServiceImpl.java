@@ -7,6 +7,7 @@ import ua.nure.dto.FlowerStorageRequestDto;
 import ua.nure.dto.FlowerStorageResponseDto;
 import ua.nure.dto.mapper.FlowerStorageMapper;
 import ua.nure.entity.*;
+import ua.nure.entity.user.FlowerStorage;
 import ua.nure.repository.*;
 import ua.nure.service.FlowerStorageService;
 

@@ -7,10 +7,9 @@ import ua.nure.dto.FloristShopDto;
 import ua.nure.dto.SmartSystemDto;
 import ua.nure.dto.StorageRoomDto;
 import ua.nure.dto.mapper.FloristShopMapper;
-import ua.nure.dto.mapper.FlowerMapper;
-import ua.nure.dto.mapper.FlowerStorageMapper;
 import ua.nure.dto.mapper.StorageRoomMapper;
 import ua.nure.entity.*;
+import ua.nure.entity.user.FlowerStorage;
 import ua.nure.entity.value.UserRole;
 import ua.nure.repository.FloristShopRepository;
 import ua.nure.repository.FlowerStorageRepository;
@@ -22,6 +21,9 @@ import java.util.*;
 
 @Service
 public class FloristShopServiceImpl implements FloristShopService {
+
+    public static final int HASHED_PASSWORD_LENGTH = 60;
+    public static final double ZERO = 0.0;
 
     @Autowired
     private FloristShopRepository floristShopRepository;
@@ -190,10 +192,8 @@ public class FloristShopServiceImpl implements FloristShopService {
                         return temperature > minTemperature
                                 && temperature < maxTemperature;
                     }).filter(room -> {
-                        int actualAmount = room.getFlowerStorages().stream()
-                                .mapToInt(FlowerStorage::getAmount).sum();
-                        int newAmount =
-                                actualAmount + flowerStorage.getAmount();
+                        int actualAmount = room.getActualCapacity();
+                        int newAmount = actualAmount + flowerStorage.getAmount();
                         int maxAmount = room.getMaxCapacity();
                         return newAmount < maxAmount;
                     }).findAny().ifPresent(newStorageRoom -> {
@@ -238,19 +238,19 @@ public class FloristShopServiceImpl implements FloristShopService {
 
     private void setIndicators(SmartSystem smartSystem) {
         if (smartSystem.getSatisfactionFactor() == null) {
-            smartSystem.setSatisfactionFactor(0.0);
+            smartSystem.setSatisfactionFactor(ZERO);
         }
 
         if (smartSystem.getAirQuality() == null) {
-            smartSystem.setAirQuality(0.0);
+            smartSystem.setAirQuality(ZERO);
         }
 
         if (smartSystem.getHumidity() == null) {
-            smartSystem.setHumidity(0.0);
+            smartSystem.setHumidity(ZERO);
         }
 
         if (smartSystem.getTemperature() == null) {
-            smartSystem.setTemperature(0.0);
+            smartSystem.setTemperature(ZERO);
         }
     }
 
@@ -258,12 +258,17 @@ public class FloristShopServiceImpl implements FloristShopService {
             FloristShop floristShop) {
         floristShop.setEmail(floristShopDto.getEmail());
         floristShop.setPhoneNumber(floristShopDto.getPhoneNumber());
-        floristShop.setPassword(
-                bCryptPasswordEncoder.encode(floristShopDto.getPassword()));
         floristShop.setName(floristShopDto.getName());
         floristShop.setCreationDate(floristShopDto.getCreationDate());
         floristShop.setRole(roleService.findByName(UserRole.USER));
+        floristShop.setCountry(floristShopDto.getCountry());
 
+        String password = floristShopDto.getPassword();
+        if (password.length() == HASHED_PASSWORD_LENGTH) {
+            floristShop.setPassword(password);
+        } else {
+            floristShop.setPassword(bCryptPasswordEncoder.encode(password));
+        }
         return floristShop;
     }
 

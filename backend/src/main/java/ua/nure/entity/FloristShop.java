@@ -3,19 +3,17 @@ package ua.nure.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import ua.nure.entity.user.User;
 
 import java.util.Date;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -36,6 +34,9 @@ public class FloristShop extends User {
 
     @Column(name = "creation_date")
     private Date creationDate;
+
+    @Column(name = "country")
+    private String country;
 
     @OneToMany(mappedBy = "floristShop", fetch = FetchType.EAGER)
     Set<StorageRoom> storageRooms;

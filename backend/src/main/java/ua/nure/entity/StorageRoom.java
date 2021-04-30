@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import ua.nure.entity.user.FlowerStorage;
 
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -65,6 +66,13 @@ public class StorageRoom {
 
     public void removeStorage(FlowerStorage flowerStorage) {
         flowerStorages.remove(flowerStorage);
+    }
+
+    public int getActualCapacity() {
+        if (flowerStorages == null || flowerStorages.isEmpty()) {
+            return 0;
+        }
+        return flowerStorages.stream().mapToInt(FlowerStorage::getAmount).sum();
     }
 
 }

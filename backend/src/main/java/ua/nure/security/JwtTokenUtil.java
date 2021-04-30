@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ua.nure.entity.User;
+import ua.nure.entity.user.User;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,7 +16,7 @@ import java.util.function.Function;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-    public static final long JWT_TOKEN_VALIDITY = 120 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 12 * 60 * 60;
     private static final long serialVersionUID = 1273984579215372379L;
 
     private final String secret = "floristik_up_project";

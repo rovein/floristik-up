@@ -56,19 +56,23 @@ public class FloristShopController {
     @PutMapping
     @ApiOperation(value = "Updates the florist shop", nickname = "updateFloristShop")
     public ResponseEntity<?> updateFloristShop(
-            @Valid @RequestBody FloristShopDto floristShopDto,
+            @RequestBody FloristShopDto floristShopDto,
             BindingResult bindingResult
     ) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(errorBody(bindingResult));
         }
 
-        FloristShopDto updatedShop = floristShopService.update(
-                floristShopDto);
-
-        if (updatedShop == null) {
+        FloristShopDto floristShop = floristShopService.findByEmail(floristShopDto.getEmail());
+        if (floristShop == null) {
             return ResponseEntity.notFound().build();
         }
+
+        String password = floristShopDto.getPassword();
+        if (password == null || password.isEmpty()) {
+            floristShopDto.setPassword(floristShop.getPassword());
+        }
+        FloristShopDto updatedShop = floristShopService.update(floristShopDto);
 
         return ResponseEntity.ok(updatedShop);
     }

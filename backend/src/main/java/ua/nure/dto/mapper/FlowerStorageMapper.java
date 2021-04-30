@@ -1,7 +1,7 @@
 package ua.nure.dto.mapper;
 
 import ua.nure.dto.FlowerStorageResponseDto;
-import ua.nure.entity.FlowerStorage;
+import ua.nure.entity.user.FlowerStorage;
 
 public class FlowerStorageMapper {
 
