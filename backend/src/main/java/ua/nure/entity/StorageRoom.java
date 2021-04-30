@@ -69,6 +69,9 @@ public class StorageRoom {
     }
 
     public int getActualCapacity() {
+        if (flowerStorages == null || flowerStorages.isEmpty()) {
+            return 0;
+        }
         return flowerStorages.stream().mapToInt(FlowerStorage::getAmount).sum();
     }
 
