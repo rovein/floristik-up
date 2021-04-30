@@ -211,6 +211,7 @@ public class FloristShopServiceImpl implements FloristShopService {
                             smartDeviceDto.getSatisfactionFactor());
             storageRoom.setSmartSystem(smartDevice);
 
+            storageRoomRepository.save(storageRoom);
             return updatedStorages;
         }
 
