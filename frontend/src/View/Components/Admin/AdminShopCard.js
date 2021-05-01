@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Interface/Button";
 import {withTranslation} from "react-i18next";
 import {confirmAlert} from "react-confirm-alert";
+import Loader from "react-loader-spinner";
 
 var url = "http://localhost:8080";
 
@@ -11,7 +12,7 @@ class Card extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      floristShops: {},
+      floristShops: [],
     };
   }
 
@@ -51,7 +52,15 @@ class Card extends React.Component {
         </div>
       );
     } else if (!isLoaded) {
-      return <p>Loading</p>;
+      return <div className="centered">
+        <Loader
+          type="BallTriangle"
+          color="seagreen"
+          height={400}
+          width={4000}
+          timeout={10000}
+        />
+      </div>;
     } else {
       return <div className="grid">{floristShops.map(this.renderCard)}</div>;
     }
@@ -79,12 +88,14 @@ class Card extends React.Component {
             }}
           />
           <Button
-            text={t("Delete")}
-            onClick={() => this.submitDelete(shop.email)}
+            className="btn btn-danger-warning"
+            text={shop.isLocked ? t("UnlockUser") : t("LockUser")}
+            onClick={() => this.lockUser(shop.email)}
           />
           <Button
-            text={t("LockUser")}
-            onClick={() => this.lockUser(shop.email)}
+            className="btn btn-danger"
+            text={t("Delete")}
+            onClick={() => this.submitDelete(shop.email)}
           />
         </div>
       </div>
@@ -137,7 +148,24 @@ class Card extends React.Component {
   }
 
   lockUser(email) {
-
+    fetch(`${url}/admin/lock-user/${email}`, {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("Token"),
+      },
+    }).then(
+      (result) => {
+        window.location.reload();
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error,
+        });
+      }
+    );
   }
 }
 

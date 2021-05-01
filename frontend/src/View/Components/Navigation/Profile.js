@@ -12,12 +12,10 @@ if (localStorage.getItem("Token") != null) {
 class Profile extends React.Component {
 
     render() {
-        console.log("In profile render")
         if (localStorage.getItem("Token") == null) {
             window.location.href = './'
         } else {
             if (decoded.role === "USER") {
-                console.log("In profile render USER")
                 return (
                     <div className="profile">
                         <Header/>
@@ -25,7 +23,6 @@ class Profile extends React.Component {
                     </div>
                 )
             } else if (decoded.role === "ADMIN") {
-                console.log("In profile render ADMIN")
                 return (
                     <div className="profile">
                         <Header/>

@@ -120,7 +120,8 @@ i18n.use(LanguageDetector).init({
         yes: "Yes",
         no: "No",
         accIsLocked: "Account is locked. Contact technical support",
-        LockUser: "Lock"
+        LockUser: "Lock",
+        UnlockUser: "Unlock"
       },
     },
     UA: {
@@ -215,7 +216,8 @@ i18n.use(LanguageDetector).init({
         NormalShelfLife: "Строк зберігання в нормі",
         yes: "Так",
         no: "Ні",
-        accIsLocked: "Обліковий запис заблоковано. Зверніться до технічної підтримки"
+        accIsLocked: "Обліковий запис заблоковано. Зверніться до технічної підтримки",
+        UnlockUser: "Разблокувати"
       },
     },
   },
