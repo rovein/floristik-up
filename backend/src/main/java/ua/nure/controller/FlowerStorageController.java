@@ -8,15 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 
 import org.springframework.web.bind.annotation.*;
-import ua.nure.dto.FloristShopDto;
-import ua.nure.dto.FlowerStorageRequestDto;
-import ua.nure.dto.FlowerStorageResponseDto;
-import ua.nure.dto.StorageRoomDto;
+import ua.nure.dto.*;
 import ua.nure.service.FlowerService;
 import ua.nure.service.FlowerStorageService;
 import ua.nure.service.FloristShopService;
 
 import javax.validation.Valid;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static ua.nure.validation.BindingResultValidator.errorBody;
 
@@ -53,7 +53,9 @@ public class FlowerStorageController {
         if (storageRoom == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id));
+
+        return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id)
+                .stream().map(FlowerStorageInfoDto::get).collect(Collectors.toSet()));
     }
 
     @PostMapping

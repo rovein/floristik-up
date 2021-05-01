@@ -3,7 +3,7 @@ package ua.nure.repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ua.nure.dto.FlowerStorageInfoDto;
+import ua.nure.dto.FlowerStorageInfo;
 import ua.nure.entity.user.FlowerStorage;
 
 import java.util.Set;
@@ -21,6 +21,6 @@ public interface FlowerStorageRepository extends CrudRepository<FlowerStorage, L
                     + "WHERE room.storage_room_id = ?1 AND flower_storage.storage_room_id = room.storage_room_id AND flower.flower_id = flower_storage.flower_id",
             nativeQuery = true
     )
-    Set<FlowerStorageInfoDto> getAllStoragesByRoom(Long roomId);
+    Set<FlowerStorageInfo> getAllStoragesByRoom(Long roomId);
 
 }

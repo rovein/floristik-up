@@ -2,7 +2,7 @@ package ua.nure.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.nure.dto.FlowerStorageInfoDto;
+import ua.nure.dto.FlowerStorageInfo;
 import ua.nure.dto.FlowerStorageRequestDto;
 import ua.nure.dto.FlowerStorageResponseDto;
 import ua.nure.dto.mapper.FlowerStorageMapper;
@@ -131,7 +131,7 @@ public class FlowerStorageServiceImpl implements FlowerStorageService {
     }
 
     @Override
-    public Set<FlowerStorageInfoDto> getAllStoragesByRoom(Long roomId) {
+    public Set<FlowerStorageInfo> getAllStoragesByRoom(Long roomId) {
         Optional<StorageRoom> storageRoom = storageRoomRepository.findById(roomId);
         if (storageRoom.isPresent()) {
             return flowerStorageRepository.getAllStoragesByRoom(roomId);

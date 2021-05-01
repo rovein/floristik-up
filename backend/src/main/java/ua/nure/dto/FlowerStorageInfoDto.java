@@ -1,22 +1,52 @@
 package ua.nure.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 
-public interface FlowerStorageInfoDto {
+@Data
+@Accessors(chain = true)
+@NoArgsConstructor
+public class FlowerStorageInfoDto {
 
-    public Long getId();
+    public static FlowerStorageInfoDto get(FlowerStorageInfo flowerStorageInfo) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String formattedDate = formatter.format(flowerStorageInfo.getStartDate());
 
-    public Date getStartDate();
+        return new FlowerStorageInfoDto()
+                .setId(flowerStorageInfo.getId())
+                .setStartDate(flowerStorageInfo.getStartDate())
+                .setAmount(flowerStorageInfo.getAmount())
+                .setFlowerName(flowerStorageInfo.getFlowerName())
+                .setFlowerColor(flowerStorageInfo.getFlowerColor())
+                .setFlowerShelfLife(flowerStorageInfo.getFlowerShelfLife())
+                .setFlowerId(flowerStorageInfo.getFlowerId())
+                .setStorageRoomId(flowerStorageInfo.getStorageRoomId())
+                .setFormattedDate(formatter.format(flowerStorageInfo.getStartDate()));
+    }
 
-    public Integer getAmount();
+    private Long id;
 
-    public String getFlowerName();
+    private Date startDate;
 
-    public String getFlowerColor();
+    private Integer amount;
 
-    public String getFlowerShelfLife();
+    private String flowerName;
 
-    public Long getFlowerId();
+    private String flowerColor;
 
-    public Long getStorageRoomId();
+    private String flowerShelfLife;
+
+    private Long flowerId;
+
+    private Long storageRoomId;
+
+    private String formattedDate;
+    
 }

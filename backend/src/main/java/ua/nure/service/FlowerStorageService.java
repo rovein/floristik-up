@@ -1,6 +1,6 @@
 package ua.nure.service;
 
-import ua.nure.dto.FlowerStorageInfoDto;
+import ua.nure.dto.FlowerStorageInfo;
 import ua.nure.dto.FlowerStorageRequestDto;
 import ua.nure.dto.FlowerStorageResponseDto;
 
@@ -18,5 +18,5 @@ public interface FlowerStorageService {
 
     FlowerStorageResponseDto findById(Long id);
 
-    Set<FlowerStorageInfoDto> getAllStoragesByRoom(Long roomId);
+    Set<FlowerStorageInfo> getAllStoragesByRoom(Long roomId);
 }
