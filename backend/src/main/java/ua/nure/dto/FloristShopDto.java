@@ -32,9 +32,20 @@ public class FloristShopDto {
     @NotEmpty(message = "Name can`t be empty")
     private String name;
 
+    private Boolean isLocked;
+
     private Date creationDate;
 
     private String country;
 
     private UserRole role;
+
+    public FloristShopDto isLocked(boolean isLocked) {
+        this.isLocked = isLocked;
+        return this;
+    }
+
+    public Boolean isLocked() {
+        return isLocked;
+    }
 }

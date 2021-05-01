@@ -269,6 +269,7 @@ public class FloristShopServiceImpl implements FloristShopService {
         } else {
             floristShop.setPassword(bCryptPasswordEncoder.encode(password));
         }
+        floristShop.isLocked(floristShopDto.isLocked() == null ? false : floristShopDto.isLocked());
         return floristShop;
     }
 

@@ -15,6 +15,7 @@ public class FloristShopMapper {
                 .setName(floristShop.getName())
                 .setCreationDate(floristShop.getCreationDate())
                 .setCountry(floristShop.getCountry())
+                .isLocked(floristShop.isLocked())
                 .setRole(UserRole.USER);
     }
 
