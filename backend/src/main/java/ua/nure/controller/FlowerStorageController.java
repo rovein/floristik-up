@@ -55,7 +55,7 @@ public class FlowerStorageController {
         }
 
         return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id)
-                .stream().map(FlowerStorageInfoDto::get).collect(Collectors.toSet()));
+                .stream().map(FlowerStorageInfoDto::new).collect(Collectors.toSet()));
     }
 
     @PostMapping

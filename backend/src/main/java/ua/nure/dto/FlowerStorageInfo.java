@@ -20,4 +20,21 @@ public interface FlowerStorageInfo {
 
     public Long getStorageRoomId();
 
+    public Long getMinTemperature();
+
+    public Long getMaxTemperature();
+
+    public String getCity();
+
+    public String getStreet();
+
+    public String getHouse();
+
+    public Long getMaxCapacity();
+
+    public Integer getActualCapacity();
+
+    public Long getTemperature();
+
+    public Long getHumidity();
 }
