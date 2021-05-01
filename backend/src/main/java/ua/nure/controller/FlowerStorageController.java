@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.nure.dto.FloristShopDto;
 import ua.nure.dto.FlowerStorageRequestDto;
 import ua.nure.dto.FlowerStorageResponseDto;
+import ua.nure.dto.StorageRoomDto;
 import ua.nure.service.FlowerService;
 import ua.nure.service.FlowerStorageService;
 import ua.nure.service.FloristShopService;
@@ -45,25 +46,15 @@ public class FlowerStorageController {
         return ResponseEntity.ok(flowerStorageResponseDto);
     }
 
-//    @GetMapping("/room/{id}")
-//    @ApiOperation(value = "Finds all contracts for cleaning company", nickname = "getAllStoragesByRoom")
-//    public ResponseEntity<?> getAllContractsByCleaningCompany(@PathVariable String id) {
-//        CleaningCompanyDto cleaningCompany = flowerService.findByEmail(email);
-//        if (cleaningCompany == null) {
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(email));
-//    }
-//
-//    @GetMapping("/flower/{id}")
-//    @ApiOperation(value = "Finds all contracts for customer company", nickname = "getAllStoragesByFlower")
-//    public ResponseEntity<?> getAllContractsByCustomerCompany(@PathVariable String id) {
-//        FloristShopDto customerCompany = floristShopService.findByEmail(email);
-//        if (customerCompany == null) {
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok(flowerStorageService.getAllStoragesByFlower(email));
-//    }
+    @GetMapping("/storage-room/{id}")
+    @ApiOperation(value = "Finds all storages for room", nickname = "getAllFlowerStoragesByRoom")
+    public ResponseEntity<?> getAllFlowerStoragesByRoom(@PathVariable Long id) {
+        StorageRoomDto storageRoom = floristShopService.findStorageRoomById(id);
+        if (storageRoom == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id));
+    }
 
     @PostMapping
     @ApiOperation(value = "Creates new flower storage in storage room", nickname = "createStorage")
@@ -83,8 +74,8 @@ public class FlowerStorageController {
 
         if (flowerService.findById(
                 flowerStorageRequestDto.getFlowerId()) == null) {
-            return ResponseEntity.
-                    status(HttpStatus.NOT_FOUND)
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
                     .body("Flower type does not exist");
         }
 

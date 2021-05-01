@@ -18,7 +18,5 @@ public interface FlowerStorageService {
 
     FlowerStorageResponseDto findById(Long id);
 
-    Set<FlowerStorageInfoDto> getAllStoragesByFlower(Long flowerId);
-
     Set<FlowerStorageInfoDto> getAllStoragesByRoom(Long roomId);
 }

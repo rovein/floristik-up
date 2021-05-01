@@ -131,15 +131,6 @@ public class FlowerStorageServiceImpl implements FlowerStorageService {
     }
 
     @Override
-    public Set<FlowerStorageInfoDto> getAllStoragesByFlower(Long flowerId) {
-        Optional<Flower> flower = flowerRepository.findById(flowerId);
-        if (flower.isPresent()) {
-            return flowerStorageRepository.getAllStoragesByFlower(flowerId);
-        }
-        return Collections.emptySet();
-    }
-
-    @Override
     public Set<FlowerStorageInfoDto> getAllStoragesByRoom(Long roomId) {
         Optional<StorageRoom> storageRoom = storageRoomRepository.findById(roomId);
         if (storageRoom.isPresent()) {
