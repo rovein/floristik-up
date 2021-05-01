@@ -82,6 +82,10 @@ class Card extends React.Component {
             text={t("Delete")}
             onClick={() => this.submitDelete(shop.email)}
           />
+          <Button
+            text={t("LockUser")}
+            onClick={() => this.lockUser(shop.email)}
+          />
         </div>
       </div>
     );
@@ -130,6 +134,10 @@ class Card extends React.Component {
         }
       );
     }
+  }
+
+  lockUser(email) {
+
   }
 }
 

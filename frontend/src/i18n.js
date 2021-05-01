@@ -118,7 +118,9 @@ i18n.use(LanguageDetector).init({
         Amount: "Amount",
         NormalShelfLife: "Shelf life is normal",
         yes: "Yes",
-        no: "No"
+        no: "No",
+        accIsLocked: "Account is locked. Contact technical support",
+        LockUser: "Lock"
       },
     },
     UA: {
@@ -151,6 +153,7 @@ i18n.use(LanguageDetector).init({
         FCity: "Місто",
         FStreet: "Вулиця",
         FHouse: "Будинок",
+        LockUser: "Заблокувати",
         FMaxCapacity: "Максимальна місткість",
         FName: "Назва",
         FColor: "Колір",
@@ -211,7 +214,8 @@ i18n.use(LanguageDetector).init({
         ExpiredShelfLife: "Перевищено строк зберігання",
         NormalShelfLife: "Строк зберігання в нормі",
         yes: "Так",
-        no: "Ні"
+        no: "Ні",
+        accIsLocked: "Обліковий запис заблоковано. Зверніться до технічної підтримки"
       },
     },
   },
