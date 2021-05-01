@@ -122,11 +122,11 @@ class PickFlowerCard extends React.Component {
       message: t("areYouSure"),
       buttons: [
         {
-          label: 'Yes',
+          label: t("yes"),
           onClick: () => this.deleteFlower(flowerId)
         },
         {
-          label: 'No'
+          label: t("no")
         }
       ],
       closeOnEscape: true,

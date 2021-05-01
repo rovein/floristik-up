@@ -154,11 +154,11 @@ class PickStorageCard extends React.Component {
       message: t("areYouSure"),
       buttons: [
         {
-          label: 'Yes',
+          label: t("yes"),
           onClick: () => this.deleteStorage(storageId)
         },
         {
-          label: 'No'
+          label: t("no")
         }
       ],
       closeOnEscape: true,

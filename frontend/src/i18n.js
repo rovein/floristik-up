@@ -9,7 +9,7 @@ i18n.use(LanguageDetector).init({
         Login: "Login",
         Signup: "Sign up",
         Comp: "Customer",
-        CComp: "Provider",
+        FloristShops: "Florist Shops",
         Name: "Name",
         Email: "Email",
         Password: "Password",
@@ -116,12 +116,15 @@ i18n.use(LanguageDetector).init({
         RoomNumber: "Room № ",
         StartDate: "Storage start date",
         Amount: "Amount",
-        NormalShelfLife: "Shelf life is normal"
+        NormalShelfLife: "Shelf life is normal",
+        yes: "Yes",
+        no: "No"
       },
     },
     UA: {
       translations: {
         Login: "Авторизуватися",
+        FloristShops: "Флористичні магазини",
         Comp: "Користувач",
         Name: "Ім'я",
         Email: "Електронна пошта",
@@ -206,7 +209,9 @@ i18n.use(LanguageDetector).init({
         StartDate: "Початок зберігання",
         Amount: "Кількість",
         ExpiredShelfLife: "Перевищено строк зберігання",
-        NormalShelfLife: "Строк зберігання в нормі"
+        NormalShelfLife: "Строк зберігання в нормі",
+        yes: "Так",
+        no: "Ні"
       },
     },
   },

@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "../../../Interface/Button";
-import { withTranslation } from "react-i18next";
+import {withTranslation} from "react-i18next";
 import jwt_decode from "jwt-decode";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import {confirmAlert} from "react-confirm-alert";
 
 if (localStorage.getItem("Token") != null) {
   var token = localStorage.getItem("Token");
@@ -51,8 +52,8 @@ class RoomCard extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-    const { error, isLoaded, rooms } = this.state;
+    const {t} = this.props;
+    const {error, isLoaded, rooms} = this.state;
     if (error) {
       return (
         <div className="additional">
@@ -77,7 +78,7 @@ class RoomCard extends React.Component {
   }
 
   renderCard = (room) => {
-    const { t } = this.props;
+    const {t} = this.props;
 
     if (decoded.role === "USER") {
       return (
@@ -120,7 +121,7 @@ class RoomCard extends React.Component {
             />
             <Button
               text={t("Delete")}
-              onClick={() => this.deleteRoom(room.id)}
+              onClick={() => this.submitDelete(room.id)}
             />
           </div>
         </div>
@@ -128,34 +129,53 @@ class RoomCard extends React.Component {
     }
   };
 
+  submitDelete = (roomId) => {
+    const {t} = this.props;
+
+    confirmAlert({
+      title: t("Delete"),
+      message: t("areYouSure"),
+      buttons: [
+        {
+          label: t("yes"),
+          onClick: () => this.deleteRoom(roomId)
+        },
+        {
+          label: t("no")
+        }
+      ],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+    });
+  };
+
   deleteRoom(id) {
     const {t} = this.props;
-    if (window.confirm(t("areYouSure"))) {
-      fetch(`${url}/florist-shops/rooms/${id}`, {
-        method: "delete",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("Token"),
-        },
-      }).then(
-        (result) => {
-          this.setState({
-            rooms: this.state.rooms.filter(room => {
-                return room.id !== id
-              }
-            )
-          })
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-    }
+    fetch(`${url}/florist-shops/rooms/${id}`, {
+      method: "delete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("Token"),
+      },
+    }).then(
+      (result) => {
+        this.setState({
+          rooms: this.state.rooms.filter(room => {
+              return room.id !== id
+            }
+          )
+        })
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error,
+        });
+      }
+    );
   }
+
 }
 
 export default withTranslation()(RoomCard);

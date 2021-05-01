@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Interface/Button";
 import {withTranslation} from "react-i18next";
+import {confirmAlert} from "react-confirm-alert";
 
 var url = "http://localhost:8080";
 
@@ -56,31 +57,6 @@ class Card extends React.Component {
     }
   }
 
-  deleteCompany(email) {
-    const {t} = this.props;
-
-    if (window.confirm(t("areYouSure"))) {
-      fetch(`${url}/florist-shops/${email}`, {
-        method: "delete",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("Token"),
-        },
-      }).then(
-        (result) => {
-          window.location.reload();
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-    }
-  }
-
   renderCard = (shop) => {
     const {t} = this.props;
 
@@ -104,12 +80,57 @@ class Card extends React.Component {
           />
           <Button
             text={t("Delete")}
-            onClick={() => this.deleteCompany(shop.email)}
+            onClick={() => this.submitDelete(shop.email)}
           />
         </div>
       </div>
     );
   };
+
+  submitDelete = (shopEmail) => {
+    const {t} = this.props;
+
+    confirmAlert({
+      title: t("Delete"),
+      message: t("areYouSure"),
+      buttons: [
+        {
+          label: t("yes"),
+          onClick: () => this.deleteShop(shopEmail)
+        },
+        {
+          label: t("no")
+        }
+      ],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+    });
+  };
+
+  deleteShop(email) {
+    const {t} = this.props;
+
+    if (window.confirm(t("areYouSure"))) {
+      fetch(`${url}/florist-shops/${email}`, {
+        method: "delete",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("Token"),
+        },
+      }).then(
+        (result) => {
+          window.location.reload();
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+    }
+  }
 }
 
 export default withTranslation()(Card);
