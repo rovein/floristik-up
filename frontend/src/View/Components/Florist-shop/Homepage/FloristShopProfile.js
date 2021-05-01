@@ -3,8 +3,8 @@ import Button from "../../Interface/Button";
 import {withTranslation} from "react-i18next";
 
 import jwt_decode from "jwt-decode";
-import PickRoomCard from "./PickRoomCard";
-import PickFlowerCard from "./PickFlowerCard";
+import PickRoomCard from "./Cards/PickRoomCard";
+import PickFlowerCard from "./Cards/PickFlowerCard";
 import ProfileBack from "./ProfileBack";
 
 if (localStorage.getItem("Token") != null) {

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Interface/Button";
+import Button from "../../../Interface/Button";
 import {withTranslation} from "react-i18next";
 import jwt_decode from "jwt-decode";
 import Loader from "react-loader-spinner";
@@ -12,7 +12,7 @@ if (localStorage.getItem("Token") != null) {
 
 const url = "http://localhost:8080";
 
-class StorageCard extends React.Component {
+class PickStorageCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -200,4 +200,4 @@ class StorageCard extends React.Component {
 
 }
 
-export default withTranslation()(StorageCard);
+export default withTranslation()(PickStorageCard);

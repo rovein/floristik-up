@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Interface/HeaderAuth";
 import { withTranslation } from "react-i18next";
 import ProfileBack from "../Florist-shop/Homepage/ProfileBack";
-import StorageCard from "../Florist-shop/Homepage/StorageCard";
+import StorageCard from "../Florist-shop/Homepage/Cards/PickStorageCard";
 
 class Info extends React.Component {
   constructor(props) {
