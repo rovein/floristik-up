@@ -14,6 +14,8 @@ import EditRoom from "./View/Components/Navigation/Room/EditRoom";
 import MoreInfo from "./View/Components/Navigation/MoreInfo";
 import AddFlower from "./View/Components/Navigation/Flower/AddFlower";
 import EditFlower from "./View/Components/Navigation/Flower/EditFlower";
+import AddStorage from "./View/Components/Navigation/Storage/AddStorage";
+import EditStorage from "./View/Components/Navigation/Storage/EditStorage";
 
 class App extends React.Component {
 
@@ -41,6 +43,9 @@ class App extends React.Component {
 
             <Route path="/add_flower" component={AddFlower} />
             <Route path="/edit_flower" component={EditFlower} />
+
+            <Route path="/add_storage" component={AddStorage} />
+            <Route path="/edit_storage" component={EditStorage} />
 
             <Redirect from="/" to="/login"/>
           </Switch>

@@ -86,7 +86,7 @@ class PickStorageCard extends React.Component {
           <p>
             {t("RoomNumber")} {localStorage.getItem('RId')} &#124;
             &nbsp;{t("City")} {storage.city}, {t("Street")} {storage.street}, {t("House")} {storage.house} &#124;
-            &nbsp;{t("Fullness")} {localStorage.getItem('actualCapacity')}/{storage.maxCapacity} &#124;
+            &nbsp;{t("Fullness")} {storage.actualCapacity}/{storage.maxCapacity} &#124;
             &nbsp;{t("Temp")}: {storage.temperature}&deg;C
             / {t("Hum")}: {storage.humidity}%
           </p>

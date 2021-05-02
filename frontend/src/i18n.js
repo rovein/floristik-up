@@ -97,6 +97,7 @@ i18n.use(LanguageDetector).init({
         EMinA: "Your minimum age format is wrong! Please try again.",
         EMaxA: "Your maximum age format is wrong! Please try again.",
         EEroor: "Something went wrong! Please? try again.",
+        EAmount: "Amount is incorrect. Try again.",
         Eprice: "Your price format is wrong! Please try again.",
         Temp: "Temperature",
         Hum: "Humidity",
@@ -202,6 +203,7 @@ i18n.use(LanguageDetector).init({
         EType: "Формат тривалості неправильний! Будь ласка, спробуйте ще раз.",
         EEroor: "Возникла помилка. Будь ласка, спробуйте ще раз.",
         Eprice: "Формат ціни неправильний! Будь ласка, спробуйте ще раз.",
+        EAmount: "Кількість неправильна. Спробуйте ще раз",
 
         eExist: "Така електронна пошта вже існує в системі!",
         areYouSure: "Ви впевнені що бажаєте це видалити?",
