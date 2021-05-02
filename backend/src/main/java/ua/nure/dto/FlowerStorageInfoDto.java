@@ -68,4 +68,6 @@ public class FlowerStorageInfoDto {
 
     private Long humidity;
 
+    private Integer actualCapacity;
+
 }

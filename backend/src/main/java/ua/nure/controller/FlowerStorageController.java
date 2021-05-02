@@ -1,5 +1,7 @@
 package ua.nure.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +58,11 @@ public class FlowerStorageController {
         }
 
         return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id)
-                .stream().map(FlowerStorageInfoDto::new).collect(Collectors.toSet()));
+                .stream()
+                .map(FlowerStorageInfoDto::new)
+                .map(infoDto -> infoDto.setActualCapacity(storageRoom.getActualCapacity()))
+                .collect(Collectors.toSet())
+        );
     }
 
     @GetMapping("/info/{id}")
@@ -66,11 +72,13 @@ public class FlowerStorageController {
         if (flowerStorage == null) {
             return ResponseEntity.notFound().build();
         }
+        Long storageRoomId = flowerStorage.getStorageRoomId();
+        StorageRoomDto storageRoom = floristShopService.findStorageRoomById(storageRoomId);
 
         return ResponseEntity.ok(
                 new FlowerStorageInfoDto(
                         flowerStorageService.getStorageInfoByStorageId(id)
-                )
+                ).setActualCapacity(storageRoom.getActualCapacity())
         );
     }
 
@@ -79,7 +87,7 @@ public class FlowerStorageController {
     public ResponseEntity<?> createStorage(
             @Valid @RequestBody FlowerStorageRequestDto flowerStorageRequestDto,
             BindingResult bindingResult
-    ) {
+    ) throws JsonProcessingException {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(errorBody(bindingResult));
         }
@@ -100,7 +108,9 @@ public class FlowerStorageController {
         try {
             return ResponseEntity.ok(flowerStorageService.create(flowerStorageRequestDto));
         } catch (Exception ex) {
-            return ResponseEntity.badRequest().body(ex.getMessage());
+            ObjectMapper objectMapper = new ObjectMapper();
+            ErrorDto error = new ErrorDto(ex.getMessage());
+            return ResponseEntity.badRequest().body(objectMapper.writeValueAsString(error));
         }
     }
 
@@ -109,7 +119,7 @@ public class FlowerStorageController {
     public ResponseEntity<?> updateStorage(
             @Valid @RequestBody FlowerStorageRequestDto flowerStorageRequestDto,
             BindingResult bindingResult
-    ) {
+    ) throws JsonProcessingException {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(errorBody(bindingResult));
         }
@@ -119,7 +129,9 @@ public class FlowerStorageController {
         try {
             updatedContract = flowerStorageService.update(flowerStorageRequestDto);
         } catch (Exception ex) {
-            return ResponseEntity.badRequest().body(ex.getMessage());
+            ObjectMapper objectMapper = new ObjectMapper();
+            ErrorDto error = new ErrorDto(ex.getMessage());
+            return ResponseEntity.badRequest().body(objectMapper.writeValueAsString(error));
         }
 
         if (updatedContract == null) {
