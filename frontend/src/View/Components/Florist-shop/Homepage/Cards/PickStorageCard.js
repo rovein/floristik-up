@@ -71,7 +71,7 @@ class PickStorageCard extends React.Component {
           color="seagreen"
           height={400}
           width={400}
-          timeout={10000}
+          timeout={30000}
         />
       </div>;
     } else if (storages.length === 0) {
@@ -90,6 +90,12 @@ class PickStorageCard extends React.Component {
             &nbsp;{t("Temp")}: {storage.temperature}&deg;C
             / {t("Hum")}: {storage.humidity}%
           </p>
+          <Button
+            text={t("redistribution")}
+            onClick={(e) => {
+              this.submitRedistribution(storage)
+            }}
+          />
           <Button
             text={t("AddStorage")}
             onClick={(e) => {
@@ -199,10 +205,10 @@ class PickStorageCard extends React.Component {
       (result) => {
         this.setState({
           storages: this.state.storages.filter(storage => {
-            if (storage.id === id) {
-              let actualCapacity = localStorage.getItem('actualCapacity')
-              localStorage.setItem('actualCapacity', (actualCapacity - storage.amount).toString())
-            }
+              if (storage.id === id) {
+                let actualCapacity = localStorage.getItem('actualCapacity')
+                localStorage.setItem('actualCapacity', (actualCapacity - storage.amount).toString())
+              }
               return storage.id !== id
             }
           )
@@ -216,6 +222,82 @@ class PickStorageCard extends React.Component {
         });
       }
     );
+  }
+
+  submitRedistribution = (storage) => {
+    const {t} = this.props;
+
+    confirmAlert({
+      title: t("redistribution"),
+      message: t("areYouSureRedistribute"),
+      buttons: [
+        {
+          label: t("yes"),
+          onClick: () => this.redistribute(storage)
+        },
+        {
+          label: t("no")
+        }
+      ],
+      closeOnEscape: true,
+      closeOnClickOutside: true
+    });
+  };
+
+  redistribute(storage) {
+    const {t} = this.props;
+    this.setState({isLoaded: false})
+    fetch(`${url}/device`, {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("Token"),
+      },
+      body: JSON.stringify({
+        id: storage.storageRoomId,
+        airQuality: storage.airQuality,
+        humidity: storage.humidity,
+        temperature: storage.temperature,
+        satisfactionFactor: storage.satisfactionFactor
+      })
+    }).then((res) => res.json())
+      .then(result => {
+        console.log(result)
+          confirmAlert({
+            title: t("redistribution"),
+            message: this.createRedistributionMessage(result),
+            buttons: [
+              {
+                label: "Ok",
+                onClick: () => window.location.reload()
+              }
+            ],
+            closeOnEscape: false,
+            closeOnClickOutside: false
+          });
+        },
+        (error) => {
+          console.log(error)
+        }
+      );
+  }
+
+  createRedistributionMessage(json) {
+    const {t} = this.props;
+
+    let resultMessage = ""
+    let flower, room
+    json.forEach(storage => {
+      flower = storage.flower
+      room = storage.storageRoom
+      resultMessage += `${t("flower")} ${flower.name} (${flower.color}) ${t("inCount")} ${storage.amount}
+      ${t("movedTo")} ${room.id} (${room.city}, ${room.street} ${room.house}).\r\n`
+    })
+    if (resultMessage === "") {
+      resultMessage = t("noRedistributionPerformed")
+    }
+    return resultMessage
   }
 
 }

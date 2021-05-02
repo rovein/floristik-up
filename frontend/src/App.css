@@ -181,6 +181,7 @@ button:focus {
   padding: 0 0 0 5%;
   font-size: 18px;
   cursor: default;
+  display: inline-block;
 }
 .grid {
   display: grid;
@@ -341,8 +342,9 @@ input[type="checkbox"].switch:checked + div > div {
 }
 
 .rooms_back .btn {
-  width: 15%;
-  margin-left: 5%;
-  margin-bottom: 1%;
+  width: 11%;
+  margin-right: 5%;
+  float: right;
+  margin-top: 0.5%;
 }
 
