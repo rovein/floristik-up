@@ -92,14 +92,13 @@ public class FlowerStorageServiceImpl implements FlowerStorageService {
     @Override
     public FlowerStorageResponseDto update(
             FlowerStorageRequestDto flowerStorageRequestDto) throws Exception {
-        Optional<FlowerStorage> contractById = flowerStorageRepository.findById(
+        Optional<FlowerStorage> storageById = flowerStorageRepository.findById(
                 flowerStorageRequestDto.getId());
 
-        if (contractById.isPresent()) {
-            FlowerStorage flowerStorage = contractById.get();
+        if (storageById.isPresent()) {
+            FlowerStorage flowerStorage = storageById.get();
 
-            int actualAmount = flowerStorage.getStorageRoom().getFlowerStorages()
-                    .stream().mapToInt(FlowerStorage::getAmount).sum();
+            int actualAmount = flowerStorage.getStorageRoom().getActualCapacity();
             int newAmount = flowerStorageRequestDto.getAmount() - flowerStorage.getAmount() + actualAmount;
             int maxAmount = flowerStorage.getStorageRoom().getMaxCapacity();
 
