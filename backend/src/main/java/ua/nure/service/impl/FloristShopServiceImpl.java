@@ -189,8 +189,8 @@ public class FloristShopServiceImpl implements FloristShopService {
                         Double temperature = room.getSmartSystem()
                                 .getTemperature();
 
-                        return temperature > minTemperature
-                                && temperature < maxTemperature;
+                        return temperature >= minTemperature
+                                && temperature <= maxTemperature;
                     }).filter(room -> {
                         int actualAmount = room.getActualCapacity();
                         int newAmount = actualAmount + flowerStorage.getAmount();
