@@ -220,15 +220,13 @@ public class FloristShopServiceImpl implements FloristShopService {
 
     private StorageRoomDto saveRoom(StorageRoomDto storageRoomDto,
             Optional<FloristShop> company) {
-        StorageRoom storageRoom = StorageRoomMapper
-                .toStorageRoom(storageRoomDto);
+        StorageRoom storageRoom = StorageRoomMapper.toStorageRoom(storageRoomDto);
         SmartSystem smartSystem = storageRoom.getSmartSystem();
 
         if (smartSystem != null) {
             smartSystem.setStorageRoom(storageRoom);
             smartSystem.setId(storageRoom.getId());
             setIndicators(smartSystem);
-
         }
         company.ifPresent(storageRoom::setFloristShop);
 
