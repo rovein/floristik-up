@@ -217,7 +217,7 @@ i18n.use(LanguageDetector).init({
         yes: "Так",
         no: "Ні",
         accIsLocked: "Обліковий запис заблоковано. Зверніться до технічної підтримки",
-        UnlockUser: "Разблокувати"
+        UnlockUser: "Розблокувати"
       },
     },
   },

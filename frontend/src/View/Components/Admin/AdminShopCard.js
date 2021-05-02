@@ -44,20 +44,20 @@ class Card extends React.Component {
 
   render() {
     const {t} = this.props;
-    const {error, isLoaded, floristShops} = this.state;
+    const {error, floristShops} = this.state;
     if (error) {
       return (
         <div className="additional">
           {t("Failiture")}: {error.message}
         </div>
       );
-    } else if (!isLoaded) {
+    } else if (!this.state.isLoaded) {
       return <div className="centered">
         <Loader
           type="BallTriangle"
           color="seagreen"
-          height={400}
-          width={4000}
+          height={425}
+          width={425}
           timeout={10000}
         />
       </div>;
