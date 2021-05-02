@@ -125,26 +125,25 @@ class Card extends React.Component {
   deleteShop(email) {
     const {t} = this.props;
 
-    if (window.confirm(t("areYouSure"))) {
-      fetch(`${url}/florist-shops/${email}`, {
-        method: "delete",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("Token"),
-        },
-      }).then(
-        (result) => {
-          window.location.reload();
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-    }
+    fetch(`${url}/florist-shops/${email}`, {
+      method: "delete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("Token"),
+      },
+    }).then(
+      (result) => {
+        window.location.reload();
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error,
+        });
+      }
+    );
+
   }
 
   lockUser(email) {

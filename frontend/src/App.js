@@ -16,6 +16,7 @@ import AddFlower from "./View/Components/Navigation/Flower/AddFlower";
 import EditFlower from "./View/Components/Navigation/Flower/EditFlower";
 import AddStorage from "./View/Components/Navigation/Storage/AddStorage";
 import EditStorage from "./View/Components/Navigation/Storage/EditStorage";
+import CreateAccount from "./View/Components/Navigation/CreateAccount";
 
 class App extends React.Component {
 
@@ -46,6 +47,8 @@ class App extends React.Component {
 
             <Route path="/add_storage" component={AddStorage} />
             <Route path="/edit_storage" component={EditStorage} />
+
+            <Route path="/create-account" component={CreateAccount}/>
 
             <Redirect from="/" to="/login"/>
           </Switch>

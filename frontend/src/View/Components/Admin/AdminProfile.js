@@ -16,6 +16,14 @@ class Profile extends React.Component {
       <div>
         <div className="profile_back">
           <p id="cName">{t("Admin")}</p>
+          <Button
+            style={{marginTop: '1%'}}
+            text={t("CreateAcc")}
+            disabled={false}
+            onClick={() => {
+              window.location.href = "/create-account";
+            }}
+          />
         </div>
 
         <div className="rooms_back">

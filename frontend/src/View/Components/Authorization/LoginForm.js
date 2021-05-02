@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../Interface/Input'
 import Button from '../Interface/Button'
 import { withTranslation } from 'react-i18next'
+import Loader from "react-loader-spinner";
 
 var url = "http://localhost:8080";
 
@@ -12,6 +13,7 @@ class SignInForm extends React.Component{
             email:'',
             password:'',
             buttonDisabled: false,
+            isLoaded: true,
             flag: 1
         }
     }
@@ -26,7 +28,8 @@ class SignInForm extends React.Component{
         this.setState({
             email: '',
             password: '',
-            buttonDisabled: false
+            buttonDisabled: false,
+            isLoaded: true
         })
     }
 
@@ -55,7 +58,8 @@ class SignInForm extends React.Component{
             return
         }
         this.setState({
-            buttonDisabled: true
+            buttonDisabled: true,
+            isLoaded: false
         })
         try{
             let res = await fetch(`${url}/auth/login`, {
@@ -90,6 +94,17 @@ class SignInForm extends React.Component{
 
     render() {
         const {t} = this.props
+        if (!this.state.isLoaded) {
+            return <div>
+                <Loader
+                  type="BallTriangle"
+                  color="seagreen"
+                  height={400}
+                  width={400}
+                  timeout={10000}
+                />
+            </div>;
+        }
         return(
             <div className="signInForm">
                 <div className='signInContainer'>

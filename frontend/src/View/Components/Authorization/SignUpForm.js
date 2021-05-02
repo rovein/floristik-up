@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../Interface/Input'
 import Button from '../Interface/Button'
 import { withTranslation } from 'react-i18next'
+import Loader from "react-loader-spinner";
 
 let url = "http://localhost:8080";
 
@@ -17,7 +18,8 @@ class SignUpForm extends React.Component {
             phone: '',
             country: '',
             flag: 1,
-            buttonDisabled: false
+            buttonDisabled: false,
+            isLoaded: true
         }
     }
 
@@ -35,7 +37,8 @@ class SignUpForm extends React.Component {
             confirmPass: '',
             phone:'',
             country:'',
-            buttonDisabled: false
+            buttonDisabled: false,
+            isLoaded: true
         })
     }
 
@@ -112,7 +115,8 @@ class SignUpForm extends React.Component {
         }
 
         this.setState({
-            buttonDisabled: true
+            buttonDisabled: true,
+            isLoaded: false
         })
 
         this.doSignUp()
@@ -139,7 +143,7 @@ class SignUpForm extends React.Component {
             })
             let result = await res.json()
             if (res.status === 400 && result.email) {
-                this.setState({flag: 10, buttonDisabled: false});
+                this.setState({flag: 10, buttonDisabled: false, isLoaded: true});
             } else if(result && result.id !== null) {
                 window.location.href='./login';
             } else if (result){
@@ -155,6 +159,17 @@ class SignUpForm extends React.Component {
 
     render() {
         const {t} = this.props
+        if (!this.state.isLoaded) {
+            return <div>
+                <Loader
+                  type="BallTriangle"
+                  color="seagreen"
+                  height={400}
+                  width={400}
+                  timeout={10000}
+                />
+            </div>;
+        }
         return(
             <div className="signUpForm">
                 <div className='signUpContainer'>
