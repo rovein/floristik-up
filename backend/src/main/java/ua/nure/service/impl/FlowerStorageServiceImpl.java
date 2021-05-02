@@ -138,4 +138,13 @@ public class FlowerStorageServiceImpl implements FlowerStorageService {
         }
         return Collections.emptySet();
     }
+
+    @Override
+    public FlowerStorageInfo getStorageInfoByStorageId(Long storageId) {
+        Optional<FlowerStorage> storage = flowerStorageRepository.findById(storageId);
+        if (storage.isPresent()) {
+            return flowerStorageRepository.getStorageInfoByStorageId(storageId);
+        }
+        return null;
+    }
 }

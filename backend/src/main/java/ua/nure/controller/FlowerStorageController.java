@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 
 import org.springframework.web.bind.annotation.*;
 import ua.nure.dto.*;
+import ua.nure.entity.user.FlowerStorage;
 import ua.nure.service.FlowerService;
 import ua.nure.service.FlowerStorageService;
 import ua.nure.service.FloristShopService;
@@ -56,6 +57,21 @@ public class FlowerStorageController {
 
         return ResponseEntity.ok(flowerStorageService.getAllStoragesByRoom(id)
                 .stream().map(FlowerStorageInfoDto::new).collect(Collectors.toSet()));
+    }
+
+    @GetMapping("/info/{id}")
+    @ApiOperation(value = "Finds flower storage info by id", nickname = "getStorageInfoById")
+    public ResponseEntity<?> getStorageInfoById(@PathVariable Long id) {
+        FlowerStorageResponseDto flowerStorage = flowerStorageService.findById(id);
+        if (flowerStorage == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(
+                new FlowerStorageInfoDto(
+                        flowerStorageService.getStorageInfoByStorageId(id)
+                )
+        );
     }
 
     @PostMapping
