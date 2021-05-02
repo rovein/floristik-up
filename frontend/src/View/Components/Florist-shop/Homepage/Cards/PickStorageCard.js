@@ -90,6 +90,14 @@ class PickStorageCard extends React.Component {
             &nbsp;{t("Temp")}: {storage.temperature}&deg;C
             / {t("Hum")}: {storage.humidity}%
           </p>
+          <Button
+            text={t("AddStorage")}
+            onClick={(e) => {
+              localStorage.setItem("RId", storage.storageRoomId);
+              localStorage.setItem("Address", storage.city + ', ' + storage.street + ' ' + storage.house)
+              window.location.href = "./add_storage";
+            }}
+          />
         </div>
         <div className="grid">{storages.sort((a, b) => {
           return (a.formattedDate > b.formattedDate) ? -1 : ((b.formattedDate > a.formattedDate) ? 1 : 0)

@@ -80,7 +80,6 @@ class Profile extends React.Component {
   render() {
     localStorage.removeItem("Id");
     const {t} = this.props;
-    console.log("In render")
     if (localStorage.getItem("Token") == null) {
       window.location.href = "./";
     } else {

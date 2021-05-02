@@ -340,3 +340,9 @@ input[type="checkbox"].switch:checked + div > div {
   background-color: darkorange;
 }
 
+.rooms_back .btn {
+  width: 15%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+}
+
