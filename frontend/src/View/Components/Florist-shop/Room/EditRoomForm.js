@@ -33,12 +33,8 @@ class EditForm extends React.Component {
 
   resetForm() {
     this.setState({
-      city: "",
-      street: "",
-      house: "",
-      maxCapacity: "",
       buttonDisabled: false,
-      isLoaded: false
+      isLoaded: true
     });
   }
 
@@ -123,6 +119,7 @@ class EditForm extends React.Component {
 
     this.setState({
       buttonDisabled: true,
+      isLoaded: false
     });
 
     this.editRoom();

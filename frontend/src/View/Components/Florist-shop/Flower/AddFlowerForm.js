@@ -3,6 +3,7 @@ import Input from "../../Interface/Input";
 import Button from "../../Interface/Button";
 import {withTranslation} from "react-i18next";
 import jwt_decode from "jwt-decode";
+import Loader from "react-loader-spinner";
 
 var url = "http://localhost:8080";
 
@@ -21,6 +22,7 @@ class AddFlowerForm extends React.Component {
       minTemperature: "",
       maxTemperature: "",
       buttonDisabled: false,
+      isLoaded:true
     };
   }
 
@@ -37,6 +39,7 @@ class AddFlowerForm extends React.Component {
       shelfLife: "",
       minTemperature: "",
       maxTemperature: "",
+      isLoaded: false,
       buttonDisabled: false,
     });
   }
@@ -96,6 +99,7 @@ class AddFlowerForm extends React.Component {
 
     this.setState({
       buttonDisabled: true,
+      isLoaded: false
     });
 
     this.addFlower();
@@ -130,6 +134,17 @@ class AddFlowerForm extends React.Component {
 
   render() {
     const {t} = this.props;
+    if (!this.state.isLoaded) {
+      return <div>
+        <Loader
+          type="BallTriangle"
+          color="seagreen"
+          height={400}
+          width={400}
+          timeout={10000}
+        />
+      </div>;
+    }
     return (
       <div className="signUpForm">
         <div className="signUpContainer">

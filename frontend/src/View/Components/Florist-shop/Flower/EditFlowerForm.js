@@ -34,13 +34,8 @@ class EditFlowerForm extends React.Component {
 
   resetForm() {
     this.setState({
-      name: "",
-      color: "",
-      shelfLife: "",
-      minTemperature: "",
-      maxTemperature: "",
       buttonDisabled: false,
-      isLoaded: false
+      isLoaded: true
     });
   }
 
@@ -129,6 +124,7 @@ class EditFlowerForm extends React.Component {
 
     this.setState({
       buttonDisabled: true,
+      isLoaded: false
     });
 
     this.editFlower();

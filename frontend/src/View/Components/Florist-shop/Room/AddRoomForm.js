@@ -3,6 +3,7 @@ import Input from "../../Interface/Input";
 import Button from "../../Interface/Button";
 import {withTranslation} from "react-i18next";
 import jwt_decode from "jwt-decode";
+import Loader from "react-loader-spinner";
 
 var url = "http://localhost:8080";
 
@@ -20,11 +21,11 @@ class AddSForm extends React.Component {
       house: "",
       maxCapacity: "",
       buttonDisabled: false,
+      isLoaded:true
     };
   }
 
   setInputValue(property, val) {
-    val = val.trim();
     this.setState({
       [property]: val,
     });
@@ -37,6 +38,7 @@ class AddSForm extends React.Component {
       house: "",
       maxCapacity: "",
       buttonDisabled: false,
+      isLoaded: false
     });
   }
 
@@ -91,6 +93,7 @@ class AddSForm extends React.Component {
     }
     this.setState({
       buttonDisabled: true,
+      isLoaded: false,
     });
 
     this.addRoom();
@@ -124,6 +127,17 @@ class AddSForm extends React.Component {
 
   render() {
     const {t} = this.props;
+    if (!this.state.isLoaded) {
+      return <div>
+        <Loader
+          type="BallTriangle"
+          color="seagreen"
+          height={400}
+          width={400}
+          timeout={10000}
+        />
+      </div>;
+    }
     return (
       <div className="signUpForm">
         <div className="signUpContainer">
