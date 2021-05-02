@@ -34,7 +34,12 @@ public interface FlowerStorageInfo {
 
     public Integer getActualCapacity();
 
-    public Long getTemperature();
+    public Double getTemperature();
 
-    public Long getHumidity();
+    public Double getHumidity();
+
+    public Double getSatisfactionFactor();
+
+    public Double getAirQuality();
+
 }

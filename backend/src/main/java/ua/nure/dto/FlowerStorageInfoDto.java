@@ -31,6 +31,8 @@ public class FlowerStorageInfoDto {
                 .setMaxCapacity(flowerStorageInfo.getMaxCapacity())
                 .setTemperature(flowerStorageInfo.getTemperature())
                 .setHumidity(flowerStorageInfo.getHumidity())
+                .setAirQuality(flowerStorageInfo.getAirQuality())
+                .setSatisfactionFactor(flowerStorageInfo.getSatisfactionFactor())
                 .setFormattedDate(formatter.format(flowerStorageInfo.getStartDate()));
     }
 
@@ -64,10 +66,14 @@ public class FlowerStorageInfoDto {
 
     private Long maxCapacity;
 
-    private Long temperature;
+    private Double temperature;
 
-    private Long humidity;
+    private Double humidity;
 
     private Integer actualCapacity;
+
+    public Double airQuality;
+
+    public Double satisfactionFactor;
 
 }
