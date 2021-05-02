@@ -123,7 +123,10 @@ i18n.use(LanguageDetector).init({
         no: "No",
         accIsLocked: "Account is locked. Contact technical support",
         LockUser: "Lock",
-        UnlockUser: "Unlock"
+        UnlockUser: "Unlock",
+        TempInterval: "Temperature interval",
+        NormalClimate: "Microclimate is satisfactory",
+        AbnormalClimate: "Microclimate is unsatisfactory"
       },
     },
     UA: {
@@ -177,6 +180,7 @@ i18n.use(LanguageDetector).init({
         Hum: "Вологість",
         More: "До зберігань",
         notTracked: "не відстежується",
+        TempInterval: "Температура зберігання",
 
         PName: "Назва",
         DName: "Назва флористичного магазину",
@@ -221,7 +225,9 @@ i18n.use(LanguageDetector).init({
         yes: "Так",
         no: "Ні",
         accIsLocked: "Обліковий запис заблоковано. Зверніться до технічної підтримки",
-        UnlockUser: "Розблокувати"
+        UnlockUser: "Розблокувати",
+        NormalClimate: "Мікроклімат задовільний",
+        AbnormalClimate: "Мікроклімат незадовільний"
       },
     },
   },

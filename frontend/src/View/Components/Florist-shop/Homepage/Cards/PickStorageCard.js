@@ -126,6 +126,15 @@ class PickStorageCard extends React.Component {
               {t("NormalShelfLife")}
             </p>
           }
+          {(storage.temperature < storage.minTemperature ||
+            storage.temperature > storage.maxTemperature) ?
+            <p className="card-text text-secondary text-danger">
+              {t("AbnormalClimate")}
+            </p> :
+            <p className="card-text text-secondary text-success">
+              {t("NormalClimate")}
+            </p>
+          }
           <p className="card-text text-secondary">
             {t("FColor")}: {storage.flowerColor}
           </p>
@@ -137,6 +146,9 @@ class PickStorageCard extends React.Component {
           </p>
           <p className="card-text text-secondary">
             {t("Amount")}: {storage.amount}
+          </p>
+          <p className="card-text text-secondary">
+            {t("TempInterval")}: {storage.minTemperature}-{storage.maxTemperature}&deg;C
           </p>
           <Button
             text={t("Edit")}
