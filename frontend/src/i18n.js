@@ -174,7 +174,7 @@ i18n.use(LanguageDetector).init({
         FMaxCapacity: "Максимальна місткість",
         FName: "Назва",
         FColor: "Колір",
-        FShelfLife: "Строк зберігання (дні)",
+        FShelfLife: "Строк зберігання рослини (дні)",
         FMinTemp: "Мінімальна температура",
         FMaxTemp: "Максимальна температура",
         AddS: "Додати приміщення",

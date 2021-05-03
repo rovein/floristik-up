@@ -202,6 +202,7 @@ class EditForm extends React.Component {
       let result = await res.json();
       console.log(result)
       if (result && result.id !== null) {
+        localStorage.setItem("floristShop", JSON.stringify(result));
         window.location.href = "./profile";
       } else if (result) {
         this.resetForm();
