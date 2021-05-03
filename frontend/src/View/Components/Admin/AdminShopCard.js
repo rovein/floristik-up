@@ -73,6 +73,11 @@ class Card extends React.Component {
       <div className="card text-center">
         <div className="crd-body text-dark" id={shop.id}>
           <h2 className="card-title">{shop.name}</h2>
+          {
+            shop.isLocked
+              ? <p className="text-danger">{t("accIsBlocked")}</p>
+              : <p className="text-success">{t("accIsActive")}</p>
+          }
           <p>
             {t("Phone")}: {shop.phoneNumber}
           </p>
@@ -147,6 +152,7 @@ class Card extends React.Component {
   }
 
   lockUser(email) {
+    this.setState({isLoaded: false})
     fetch(`${url}/admin/lock-user/${email}`, {
       method: "post",
       headers: {

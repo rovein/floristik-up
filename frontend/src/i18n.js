@@ -135,6 +135,8 @@ i18n.use(LanguageDetector).init({
         flower: 'Flowers',
         inCount: 'in count',
         movedTo: 'are redistributed to',
+        accIsActive: 'Account is active',
+        accIsBlocked: 'Account is blocked'
       },
     },
     UA: {
@@ -244,6 +246,8 @@ i18n.use(LanguageDetector).init({
         flower: 'Квітку',
         inCount: 'у кількості',
         movedTo: 'перерозподілено до приміщення',
+        accIsActive: 'Обліковий запис активний',
+        accIsBlocked: 'Обліковий запис заблоковано'
 
       },
     },
