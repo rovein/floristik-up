@@ -6,7 +6,7 @@ This is the program system for automizing floristik businesses.
 
 It consists of Backend, Frontend, Mobile Android application and IoT device.
 
-##How to run
+## How to run
 1. Backend  
     In backend root directory run next terminal command:<br>
     ``mvn spring-boot:run``<br>
