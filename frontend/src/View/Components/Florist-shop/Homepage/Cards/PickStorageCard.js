@@ -75,9 +75,14 @@ class PickStorageCard extends React.Component {
         />
       </div>;
     } else if (storages.length === 0) {
-      return <div className="centered">
-        <h1>{t("NoStorages")}</h1>
-      </div>
+      return <div>
+        <h1 className="centered-no-storages">{t("NoStorages")}</h1>
+        <Button
+          text={t("AddStorage")}
+          onClick={(e) => {
+            window.location.href = "./add_storage";
+          }}
+        /></div>
     } else {
       const storage = storages[0]
 
