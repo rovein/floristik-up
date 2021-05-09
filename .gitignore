@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+*.zip
+*.md5
