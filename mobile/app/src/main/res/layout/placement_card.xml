@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/room_cv"
+    style="@style/card">
+
+    <RelativeLayout
+        style="@style/card_rl"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/storage_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/card_header">
+            <TextView
+                android:id="@+id/placement_number_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/room_number"
+                android:textColor="@color/light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/flower_name_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/light"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/city_label"
+            style="@style/card_text"
+            android:layout_below="@+id/storage_header"
+            android:layout_marginTop="20dp"
+            android:text="@string/city"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/city_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/city_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/city_label" />
+
+        <TextView
+            android:id="@+id/street_label"
+            style="@style/card_text"
+            android:layout_below="@+id/city_label"
+            android:layout_marginTop="10dp"
+            android:text="@string/street"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/street_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/street_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/street_label" />
+
+        <TextView
+            android:id="@+id/house_label"
+            style="@style/card_text"
+            android:layout_below="@+id/street_label"
+            android:layout_marginTop="10dp"
+            android:text="@string/house"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/house_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/house_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/house_label" />
+        <TextView
+            android:id="@+id/temperature_label"
+            style="@style/card_text"
+            android:layout_below="@+id/house_label"
+            android:layout_marginTop="10dp"
+            android:text="@string/temperature"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/temperature_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/temperature_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/temperature_label" />
+
+        <TextView
+            android:id="@+id/humidity_label"
+            style="@style/card_text"
+            android:layout_below="@+id/temperature_label"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/humidity"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/humidity_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/humidity_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/humidity_label" />
+
+        <TextView
+            android:id="@+id/capacity_label"
+            style="@style/card_text"
+            android:layout_below="@+id/humidity_label"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/capacity"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/capacity_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/capacity_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/capacity_label" />
+
+
+        <Button
+                android:id="@+id/edit_room_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/to_storages_button"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/edit" />
+
+        <Button
+                android:id="@+id/delete_room_btn"
+                android:layout_width="279dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_room_btn"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="3dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/delete" />
+
+        <Button
+                android:id="@+id/to_storages_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/capacity_text"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="false"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="6dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/to_storages" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

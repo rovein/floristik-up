@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <ImageView
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".1"
+        android:background="@color/green"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintTop_toTopOf="@id/header_bg"
+        app:layout_constraintBottom_toBottomOf="@id/header_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias=".02"/>
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile"
+        style="@style/custom_title"
+        android:textStyle="normal"
+        app:layout_constraintTop_toTopOf="@id/header_bg"
+        app:layout_constraintBottom_toBottomOf="@id/header_bg"
+        app:layout_constraintStart_toEndOf="@+id/back_btn"
+        app:layout_constraintEnd_toStartOf="@id/exit_btn" />
+
+    <ImageView
+        android:id="@+id/exit_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_exit"
+        app:layout_constraintTop_toTopOf="@id/header_bg"
+        app:layout_constraintBottom_toBottomOf="@id/header_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        style="@style/custom_title"
+        android:textStyle="normal"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias=".13"
+        app:layout_constraintHorizontal_bias=".15" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.21">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/name" />
+
+        <TextView
+                android:id="@+id/profile_name"
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+        <EditText
+                android:id="@+id/profile_name_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.377">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/phone" />
+
+        <TextView
+                android:id="@+id/profile_phone"
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+        <EditText
+                android:id="@+id/profile_phone_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.622">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/confirm_password" />
+
+        <TextView
+                android:id="@+id/profile_confirm_password"
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+        <EditText
+                android:id="@+id/profile_confirm_password_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.543">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/password" />
+
+        <EditText
+                android:id="@+id/profile_password_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.297">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/email" />
+
+        <TextView
+                android:id="@+id/profile_email"
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+        <EditText
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:id="@+id/profile_email_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.457">
+
+        <TextView
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/country" />
+
+        <TextView
+                android:id="@+id/profile_country"
+                style="@style/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+        <EditText
+                android:id="@+id/profile_country_edit"
+                style="@style/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/edit_profile_btn"
+            style="@style/custom_button"
+            android:layout_width="371dp"
+            android:layout_height="54dp"
+            android:text="@string/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.745"
+            app:layout_constraintWidth_percent=".6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

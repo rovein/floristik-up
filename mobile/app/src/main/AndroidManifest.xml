@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ua.nure.floristikup">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FloristikUp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name="ua.nure.floristikup.ui.profile.FlowersActivity" />
+        <activity android:name="ua.nure.floristikup.ui.profile.PlacementsActivity" />
+        <activity android:name="ua.nure.floristikup.ui.storages.StoragesActivity" />
+        <activity android:name="ua.nure.floristikup.ui.profile.ProfileActivity" />
+        <activity android:name="ua.nure.floristikup.ui.profile.MenuActivity" />
+        <activity android:name="ua.nure.floristikup.ui.auth.SignUpActivity" />
+        <activity android:name="ua.nure.floristikup.ui.edit.EditFlowerActivity" />
+        <activity android:name="ua.nure.floristikup.ui.edit.EditPlacementActivity" />
+        <activity android:name="ua.nure.floristikup.ui.add.AddFlowerActivity" />
+        <activity android:name="ua.nure.floristikup.ui.add.AddPlacementActivity" />
+        <activity android:name="ua.nure.floristikup.ui.profile.SearchActivity" />
+        <activity android:name="ua.nure.floristikup.ui.flowerStorages.SignContractActivity" />
+        <activity android:name="ua.nure.floristikup.ui.auth.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

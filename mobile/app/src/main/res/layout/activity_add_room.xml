@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.edit.EditPlacementActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/add_room_label"
+        style="@style/custom_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_room"
+        android:textAlignment="center"
+            android:textColor="@color/green"/>
+
+    <EditText
+        android:id="@+id/add_city_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_input"
+        android:layout_below="@+id/add_room_label"
+        android:layout_marginTop="60dp"
+        android:hint="@string/city"
+        android:inputType="text"
+        android:autofillHints=""
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"/>
+
+    <EditText
+        android:id="@+id/add_street_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_input"
+        android:layout_below="@+id/add_city_label"
+        android:layout_marginTop="40dp"
+        android:hint="@string/street"
+        android:inputType="text"
+        android:autofillHints=""
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"/>
+    <EditText
+        android:id="@+id/add_house_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_input"
+        android:layout_below="@+id/add_street_label"
+        android:layout_marginTop="40dp"
+        android:hint="@string/house"
+        android:inputType="text"
+        android:autofillHints=""
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"/>
+    <EditText
+        android:id="@+id/add_max_capacity_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_input"
+        android:layout_below="@+id/add_house_label"
+        android:layout_marginTop="40dp"
+        android:hint="@string/max_capacity"
+        android:inputType="text"
+        android:autofillHints=""
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"/>
+
+    <Button
+            android:id="@+id/cancel_add_room_btn"
+            style="@style/cancel_btn"
+            android:layout_width="140dp"
+            android:layout_below="@+id/add_max_capacity_input"
+            android:layout_alignStart="@+id/add_max_capacity_input"
+            android:layout_marginStart="154dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/cancel" />
+
+    <Button
+            android:id="@+id/save_add_room_btn"
+            style="@style/save_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cancel_add_room_btn"
+            android:layout_marginStart="-292dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/cancel_add_room_btn"
+            android:text="@string/save" />
+
+
+</RelativeLayout>

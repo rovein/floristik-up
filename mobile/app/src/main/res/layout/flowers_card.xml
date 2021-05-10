@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flowers_card_view"
+    style="@style/card">
+
+    <RelativeLayout
+        style="@style/card_rl"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/flower_name_label"
+            style="@style/card_header" />
+
+        <TextView
+                android:id="@+id/name_label"
+                style="@style/card_text"
+                android:layout_below="@+id/flower_name_label"
+                android:layout_marginTop="20dp"
+                android:text="@string/flower_name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/name_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/name_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/name_label" />
+
+        <TextView
+                android:id="@+id/color"
+                style="@style/card_text"
+                android:layout_below="@+id/name_text"
+                android:layout_marginTop="10dp"
+                android:text="@string/color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/color_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/color"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/color" />
+
+        <TextView
+                android:id="@+id/shelf_life_label"
+                style="@style/card_text"
+                android:layout_below="@+id/color"
+                android:layout_marginTop="10dp"
+                android:text="@string/shelf_life"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/shelf_life_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/shelf_life_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/shelf_life_label" />
+
+        <TextView
+                android:id="@+id/placement_number_label"
+                style="@style/card_text"
+                android:layout_below="@+id/shelf_life_label"
+                android:layout_marginTop="10dp"
+                android:text="@string/min_temperature"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/flower_name_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/placement_number_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/placement_number_label" />
+
+        <TextView
+                android:id="@+id/max_temp_label"
+                style="@style/card_text"
+                android:layout_below="@+id/placement_number_label"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/max_temperature"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/max_temp_text"
+            style="@style/card_text"
+            android:layout_alignTop="@+id/max_temp_label"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/max_temp_label" />
+
+        <Button
+            android:id="@+id/edit_flower_btn"
+            android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/max_temp_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/edit" />
+
+        <Button
+            android:id="@+id/delete_flower_btn"
+                android:backgroundTint="@color/green"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/edit_flower_btn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/delete" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

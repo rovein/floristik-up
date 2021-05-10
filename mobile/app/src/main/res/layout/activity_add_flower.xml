@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.edit.EditFlowerActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/add_service_label"
+        style="@style/custom_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_flower"
+        android:textAlignment="center"
+            android:textColor="@color/green"/>
+
+    <EditText
+        android:id="@+id/add_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_input"
+        android:layout_below="@+id/add_service_label"
+        android:layout_marginTop="40dp"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:autofillHints=""
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"/>
+
+    <EditText
+            android:id="@+id/add_city_label"
+            style="@style/custom_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_name_input"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:autofillHints=""
+            android:hint="@string/color"
+            android:inputType="text" />
+
+    <EditText
+            android:id="@+id/add_shelf_life_input"
+            style="@style/custom_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_city_label"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:autofillHints=""
+            android:hint="@string/shelf_life"
+            android:inputType="text" />
+
+    <EditText
+            android:id="@+id/add_min_temp_input"
+            style="@style/custom_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_shelf_life_input"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:autofillHints=""
+            android:hint="@string/min_temperature"
+            android:inputType="text" />
+
+    <EditText
+            android:id="@+id/add_max_temp_input"
+            style="@style/custom_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_min_temp_input"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:autofillHints=""
+            android:hint="@string/max_temperature"
+            android:inputType="text" />
+
+
+    <Button
+            android:id="@+id/cancel_add_flower_btn"
+            style="@style/cancel_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_max_temp_input"
+            android:layout_alignStart="@id/add_max_temp_input"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="64dp"
+            android:text="@string/cancel" />
+
+    <Button
+            android:id="@+id/save_add_flower_btn"
+            style="@style/save_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cancel_add_flower_btn"
+            android:layout_marginStart="-294dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/cancel_add_flower_btn"
+            android:text="@string/save" />
+
+
+</RelativeLayout>
