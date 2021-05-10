@@ -26,6 +26,8 @@ import javax.persistence.Table;
 @Accessors(chain = true)
 public class SmartSystem {
 
+    private static final Double ZERO = 0.0;
+
     @Id
     @Column(name = "storage_room_id")
     private Long id;
@@ -47,5 +49,23 @@ public class SmartSystem {
     @JsonIgnore
     @JoinColumn(name = "storage_room_id")
     private StorageRoom storageRoom;
+
+    public void setDefaultIndicators() {
+        if (satisfactionFactor == null) {
+            setSatisfactionFactor(ZERO);
+        }
+
+        if (airQuality == null) {
+            setAirQuality(ZERO);
+        }
+
+        if (humidity == null) {
+            setHumidity(ZERO);
+        }
+
+        if (temperature == null) {
+            setTemperature(ZERO);
+        }
+    }
 
 }

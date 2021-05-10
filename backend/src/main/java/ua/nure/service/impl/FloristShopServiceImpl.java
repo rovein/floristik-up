@@ -23,7 +23,6 @@ import java.util.*;
 public class FloristShopServiceImpl implements FloristShopService {
 
     public static final int HASHED_PASSWORD_LENGTH = 60;
-    public static final double ZERO = 0.0;
 
     @Autowired
     private FloristShopRepository floristShopRepository;
@@ -223,33 +222,18 @@ public class FloristShopServiceImpl implements FloristShopService {
         StorageRoom storageRoom = StorageRoomMapper.toStorageRoom(storageRoomDto);
         SmartSystem smartSystem = storageRoom.getSmartSystem();
 
-        if (smartSystem != null) {
-            smartSystem.setStorageRoom(storageRoom);
-            smartSystem.setId(storageRoom.getId());
-            setIndicators(smartSystem);
+        if (smartSystem == null) {
+            smartSystem = new SmartSystem();
         }
+        smartSystem.setStorageRoom(storageRoom);
+        smartSystem.setId(storageRoom.getId());
+        smartSystem.setDefaultIndicators();
+        storageRoom.setSmartSystem(smartSystem);
+
         company.ifPresent(storageRoom::setFloristShop);
 
         return StorageRoomMapper
                 .toStorageRoomDto(storageRoomRepository.save(storageRoom));
-    }
-
-    private void setIndicators(SmartSystem smartSystem) {
-        if (smartSystem.getSatisfactionFactor() == null) {
-            smartSystem.setSatisfactionFactor(ZERO);
-        }
-
-        if (smartSystem.getAirQuality() == null) {
-            smartSystem.setAirQuality(ZERO);
-        }
-
-        if (smartSystem.getHumidity() == null) {
-            smartSystem.setHumidity(ZERO);
-        }
-
-        if (smartSystem.getTemperature() == null) {
-            smartSystem.setTemperature(ZERO);
-        }
     }
 
     private FloristShop toFloristShop(FloristShopDto floristShopDto,
