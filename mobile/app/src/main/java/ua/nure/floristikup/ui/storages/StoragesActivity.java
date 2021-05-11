@@ -132,7 +132,7 @@ public class StoragesActivity extends AppCompatActivity {
             loadingDialog.dismiss();
             new AlertDialog.Builder(StoragesActivity.this)
                     .setTitle(getString(R.string.redistribute))
-                    .setMessage(resultMessage)
+                    .setMessage(result)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
                         startActivity(new Intent(StoragesActivity.this, PlacementsActivity.class));

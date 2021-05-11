@@ -109,13 +109,14 @@ public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewH
                 System.out.println(response.body());
                 mPlacements.remove(mRoomsViewHolder.getAdapterPosition());
                 notifyItemRemoved(mRoomsViewHolder.getAdapterPosition());
-                mContext.startActivity(new Intent(mContext, MenuActivity.class));
             }
         }
 
         @Override
         public void onFailure(Call<Placement> call, Throwable t) {
             System.out.println(t);
+            mPlacements.remove(mRoomsViewHolder.getAdapterPosition());
+            notifyItemRemoved(mRoomsViewHolder.getAdapterPosition());
         }
     };
 

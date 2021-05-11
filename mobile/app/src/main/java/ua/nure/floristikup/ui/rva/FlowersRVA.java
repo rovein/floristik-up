@@ -98,6 +98,8 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
         @Override
         public void onFailure(Call<Flower> call, Throwable t) {
             System.out.println(t);
+            flowers.remove(flowersViewHolder.getAdapterPosition());
+            notifyDataSetChanged();
         }
     };
 
