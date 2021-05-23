@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,6 +26,7 @@ import ua.nure.floristikup.network.NetworkService;
 import ua.nure.floristikup.ui.add.AddPlacementActivity;
 import ua.nure.floristikup.ui.rva.PlacementsRVA;
 import ua.nure.floristikup.ui.util.LoadingDialog;
+import ua.nure.floristikup.ui.util.NavigationBottomMenu;
 
 public class PlacementsActivity extends AppCompatActivity {
 
@@ -50,15 +53,14 @@ public class PlacementsActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(llm);
         mRecyclerView.setHasFixedSize(true);
 
-        backButton.setOnClickListener((v) -> {
-            navigateToScreen(MenuActivity.class);
-            finish();
-        });
-
         addButton.setOnClickListener((v) -> {
             navigateToScreen(AddPlacementActivity.class);
             finish();
         });
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        navigation.setOnNavigationItemSelectedListener(NavigationBottomMenu.getOnNavigationItemSelectedListener(PlacementsActivity.this));
+        navigation.clearFocus();
     }
 
     @Override

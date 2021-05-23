@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,6 +24,7 @@ import ua.nure.floristikup.data.FloristShop;
 import ua.nure.floristikup.network.NetworkService;
 import ua.nure.floristikup.ui.auth.SignInActivity;
 import ua.nure.floristikup.ui.util.LoadingDialog;
+import ua.nure.floristikup.ui.util.NavigationBottomMenu;
 import ua.nure.floristikup.util.ValidationUtils;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -73,15 +76,15 @@ public class ProfileActivity extends AppCompatActivity {
         editButton = findViewById(R.id.edit_profile_btn);
         editButton.setOnClickListener(v -> startEditing());
 
-        mBack = findViewById(R.id.back_btn);
-        mBack.setOnClickListener(v -> finish());
-
         mLogOut = findViewById(R.id.exit_btn);
         mLogOut.setOnClickListener(v -> {
             FloristShop.getInstance().setToken(null).setName(null);
             startActivity(new Intent(ProfileActivity.this, SignInActivity.class));
         });
 
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        navigation.setOnNavigationItemSelectedListener(NavigationBottomMenu.getOnNavigationItemSelectedListener(ProfileActivity.this));
+        navigation.clearFocus();
         showTV();
     }
 

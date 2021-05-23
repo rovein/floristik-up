@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/page_1"
+            android:id="@+id/navigation_placements"
             android:enabled="true"
-            android:icon="@drawable/button"
-            android:title="@string/capacity"/>
+            android:color="@color/black"
+            android:title="@string/rooms"
+            android:icon="@drawable/ic_baseline_home_24"/>
     <item
-            android:id="@+id/page_2"
+            android:id="@+id/navigation_flowers"
             android:enabled="true"
-            android:icon="@drawable/button"
-            android:title="@string/city"/>
+            android:color="@color/black"
+            android:title="@string/flowers"
+            android:icon="@drawable/ic_baseline_local_florist_24"/>
+    <item
+            android:id="@+id/navigation_profile"
+            android:enabled="true"
+            android:color="@color/black"
+            android:title="@string/profile"
+            android:icon="@drawable/ic_baseline_account_box_24"/>
 </menu>
