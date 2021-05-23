@@ -26,8 +26,6 @@
         <activity android:name="ua.nure.floristikup.ui.edit.EditPlacementActivity" />
         <activity android:name="ua.nure.floristikup.ui.add.AddFlowerActivity" />
         <activity android:name="ua.nure.floristikup.ui.add.AddPlacementActivity" />
-        <activity android:name="ua.nure.floristikup.ui.profile.SearchActivity" />
-        <activity android:name="ua.nure.floristikup.ui.flowerStorages.SignContractActivity" />
         <activity android:name="ua.nure.floristikup.ui.auth.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
