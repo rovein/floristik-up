@@ -14,39 +14,19 @@
         android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintTop_toTopOf="@id/header_bg"
-        app:layout_constraintBottom_toBottomOf="@id/header_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias=".02"/>
-
     <TextView
-        android:id="@+id/name_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile"
-        style="@style/custom_title"
-        android:textStyle="normal"
-        app:layout_constraintTop_toTopOf="@id/header_bg"
-        app:layout_constraintBottom_toBottomOf="@id/header_bg"
-        app:layout_constraintStart_toEndOf="@+id/back_btn"
-        app:layout_constraintEnd_toStartOf="@id/exit_btn" />
-
-    <ImageView
-        android:id="@+id/exit_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_exit"
-        app:layout_constraintTop_toTopOf="@id/header_bg"
-        app:layout_constraintBottom_toBottomOf="@id/header_bg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"/>
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            style="@style/custom_title"
+            android:textStyle="normal"
+            app:layout_constraintTop_toTopOf="@id/header_bg"
+            app:layout_constraintBottom_toBottomOf="@id/header_bg"
+            app:layout_constraintLeft_toLeftOf="@id/header_bg"
+            app:layout_constraintRight_toRightOf="@id/header_bg"
+            app:layout_constraintVertical_bias="0.666"
+            tools:layout_editor_absoluteX="134dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -274,6 +254,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.745"
             app:layout_constraintWidth_percent=".6" />
+
+    <Button
+            android:id="@+id/exit_btn"
+            style="@style/custom_button"
+            android:layout_width="371dp"
+            android:layout_height="54dp"
+            android:text="@string/exit"
+            app:layout_constraintWidth_percent=".6"
+            tools:layout_editor_absoluteX="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_profile"
+            app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_profile"

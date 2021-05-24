@@ -66,4 +66,5 @@
     <string name="placement_number">Приміщення №</string>
     <string name="redistribute">Перерозподілити</string>
     <string name="are_you_sure_redistribute">Виконати перерозподіл продукції, для якої незадовільний мікроклімат?</string>
+    <string name="exit">Вийти із профілю</string>
 </resources>

@@ -20,7 +20,6 @@
         <activity android:name="ua.nure.floristikup.ui.profile.PlacementsActivity" />
         <activity android:name="ua.nure.floristikup.ui.storages.StoragesActivity" />
         <activity android:name="ua.nure.floristikup.ui.profile.ProfileActivity" />
-        <activity android:name="ua.nure.floristikup.ui.profile.MenuActivity" />
         <activity android:name="ua.nure.floristikup.ui.auth.SignUpActivity" />
         <activity android:name="ua.nure.floristikup.ui.edit.EditFlowerActivity" />
         <activity android:name="ua.nure.floristikup.ui.edit.EditPlacementActivity" />

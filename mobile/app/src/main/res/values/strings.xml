@@ -67,4 +67,5 @@
     <string name="placement_number">Placement №</string>
     <string name="redistribute">Redistribute</string>
     <string name="are_you_sure_redistribute">Perform redistribution for flowers with unsatisfactory microclimate?</string>
+    <string name="exit">Exit</string>
 </resources>
