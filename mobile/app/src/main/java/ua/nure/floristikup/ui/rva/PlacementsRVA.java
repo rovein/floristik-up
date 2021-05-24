@@ -27,7 +27,6 @@ import ua.nure.floristikup.data.Placement;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
 import ua.nure.floristikup.ui.edit.EditPlacementActivity;
-import ua.nure.floristikup.ui.profile.MenuActivity;
 import ua.nure.floristikup.ui.storages.StoragesActivity;
 
 public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewHolder>{

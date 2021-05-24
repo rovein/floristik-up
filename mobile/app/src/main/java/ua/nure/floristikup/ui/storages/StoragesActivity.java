@@ -34,7 +34,6 @@ import ua.nure.floristikup.data.RedistributionResponseDto;
 import ua.nure.floristikup.data.SmartDevice;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
-import ua.nure.floristikup.ui.profile.MenuActivity;
 import ua.nure.floristikup.ui.profile.PlacementsActivity;
 import ua.nure.floristikup.ui.rva.StoragesRVA;
 import ua.nure.floristikup.ui.util.LoadingDialog;
@@ -69,7 +68,6 @@ public class StoragesActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
 
         mBackButton.setOnClickListener((v) -> {
-            navigateToMenuScreen();
             finish();
         });
 
@@ -91,13 +89,6 @@ public class StoragesActivity extends AppCompatActivity {
                         ).enqueue(redistributionCallback);
                     }
                     ).setNegativeButton(android.R.string.no, null).show());
-
-        addButton.setOnClickListener((v) -> {
-            Intent intent = new Intent(StoragesActivity.this, CreateStorageActivity.class);
-            intent.putExtra("rId",  getIntent().getIntExtra("rId", -1));
-            startActivity(intent);
-            finish();
-        });
 
     }
 
@@ -242,12 +233,6 @@ public class StoragesActivity extends AppCompatActivity {
             );
         }
     }
-
-    private void navigateToMenuScreen() {
-        Intent intent = new Intent(StoragesActivity.this, MenuActivity.class);
-        startActivity(intent);
-    }
-
 
     private void navigateToScreen(Class cls) {
         Intent intent = new Intent(StoragesActivity.this, cls);

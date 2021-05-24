@@ -3,7 +3,6 @@ package ua.nure.floristikup.ui.rva;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -19,8 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -30,10 +27,8 @@ import retrofit2.Response;
 import ua.nure.floristikup.R;
 import ua.nure.floristikup.data.FloristShop;
 import ua.nure.floristikup.data.FlowerStorage;
-import ua.nure.floristikup.data.Placement;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
-import ua.nure.floristikup.ui.profile.MenuActivity;
 import ua.nure.floristikup.ui.util.LoadingDialog;
 import ua.nure.floristikup.util.DateUtil;
 

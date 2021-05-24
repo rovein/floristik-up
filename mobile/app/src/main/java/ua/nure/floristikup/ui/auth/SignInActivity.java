@@ -18,7 +18,6 @@ import retrofit2.Response;
 import ua.nure.floristikup.R;
 import ua.nure.floristikup.data.FloristShop;
 import ua.nure.floristikup.network.NetworkService;
-import ua.nure.floristikup.ui.profile.MenuActivity;
 import ua.nure.floristikup.ui.profile.PlacementsActivity;
 import ua.nure.floristikup.ui.util.LoadingDialog;
 import ua.nure.floristikup.util.InternetConnection;

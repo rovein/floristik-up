@@ -17,7 +17,7 @@ import ua.nure.floristikup.data.FloristShop;
 import ua.nure.floristikup.data.Flower;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
-import ua.nure.floristikup.ui.profile.MenuActivity;
+import ua.nure.floristikup.ui.profile.FlowersActivity;
 import ua.nure.floristikup.ui.util.LoadingDialog;
 
 public class AddFlowerActivity extends AppCompatActivity {
@@ -74,7 +74,7 @@ public class AddFlowerActivity extends AppCompatActivity {
             if (response.isSuccessful()) {
                 System.out.println(response.body());
                 loadingDialog.dismiss();
-                Intent intent = new Intent(AddFlowerActivity.this, MenuActivity.class);
+                Intent intent = new Intent(AddFlowerActivity.this, FlowersActivity.class);
                 startActivity(intent);
                 finish();
             }

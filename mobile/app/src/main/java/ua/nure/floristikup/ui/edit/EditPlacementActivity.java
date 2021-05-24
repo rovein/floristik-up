@@ -22,7 +22,7 @@ import ua.nure.floristikup.data.FloristShop;
 import ua.nure.floristikup.data.Placement;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
-import ua.nure.floristikup.ui.profile.MenuActivity;
+import ua.nure.floristikup.ui.profile.PlacementsActivity;
 import ua.nure.floristikup.ui.util.LoadingDialog;
 
 public class EditPlacementActivity extends AppCompatActivity {
@@ -112,7 +112,7 @@ public class EditPlacementActivity extends AppCompatActivity {
             if (response.isSuccessful()) {
                 System.out.println(response.body());
                 loadingDialog.dismiss();
-                Intent intent = new Intent(EditPlacementActivity.this, MenuActivity.class);
+                Intent intent = new Intent(EditPlacementActivity.this, PlacementsActivity.class);
                 startActivity(intent);
                 finish();
             }
