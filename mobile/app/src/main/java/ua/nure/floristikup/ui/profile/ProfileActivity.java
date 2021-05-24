@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -82,9 +84,10 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(ProfileActivity.this, SignInActivity.class));
         });
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation_profile);
         navigation.setOnNavigationItemSelectedListener(NavigationBottomMenu.getOnNavigationItemSelectedListener(ProfileActivity.this));
-        navigation.clearFocus();
+        NavigationBottomMenu.setCheckedItem(navigation.getMenu(), R.id.navigation_profile);
+
         showTV();
     }
 

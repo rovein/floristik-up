@@ -3,6 +3,8 @@ package ua.nure.floristikup.ui.profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,9 +60,9 @@ public class FlowersActivity extends AppCompatActivity {
             finish();
         });
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation_flowers);
         navigation.setOnNavigationItemSelectedListener(NavigationBottomMenu.getOnNavigationItemSelectedListener(FlowersActivity.this));
-
+        NavigationBottomMenu.setCheckedItem(navigation.getMenu(), R.id.navigation_flowers);
     }
 
     @Override
