@@ -2,6 +2,7 @@ package ua.nure.floristikup.ui.rva;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
@@ -94,7 +95,12 @@ public class StoragesRVA extends RecyclerView.Adapter<StoragesRVA.ContractsViewH
 
         holder.deleteButton.setOnClickListener(v -> {
             storagesViewHolder = holder;
-            deleteStorage();
+            new AlertDialog.Builder(this.mContext)
+                    .setTitle(mContext.getString(R.string.delete))
+                    .setMessage(mContext.getString(R.string.are_you_sure_delete))
+                    .setIcon(android.R.drawable.ic_delete)
+                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> deleteStorage())
+                    .setNegativeButton(android.R.string.no, null).show();
         });
     }
 

@@ -58,7 +58,11 @@ public class EditPlacementActivity extends AppCompatActivity {
         getRoom();
 
         mSaveButton.setOnClickListener(v -> saveRoom());
-        mCancelButton.setOnClickListener(v -> finish());
+        mCancelButton.setOnClickListener(v -> {
+            Intent intent = new Intent(EditPlacementActivity.this, PlacementsActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void getRoom() {

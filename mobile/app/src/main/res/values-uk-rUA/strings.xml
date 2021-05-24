@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="signin_title">Вітаємо</string>
-    <string name="signup_title">Створити акаунт</string>
+    <string name="signup_title">Реєстрація</string>
     <string name="sign_in_to_continue">Щоб продовжити, увійдіть до системи</string>
-    <string name="create_new_account">Створити новий акаунт</string>
+    <string name="create_new_account">Створення облікового запису користувача</string>
     <string name="name">Назва:</string>
     <string name="country">Країна:</string>
     <string name="city">Місто:</string>
-    <string name="street">Вулиця</string>
-    <string name="house">Дім</string>
+    <string name="street">Вулиця:</string>
+    <string name="house">Будинок:</string>
     <string name="email">Email:</string>
     <string name="phone">Телефон:</string>
     <string name="password">Пароль:</string>
@@ -30,7 +30,6 @@
     <string name="room_number">Номер приміщення:</string>
     <string name="rooms">Приміщення</string>
     <string name="flowers">Квіти</string>
-    <string name="search">Пошук компанії</string>
     <string name="about">Тут інформація про ваш профіль</string>
     <string name="edit">Редагувати</string>
     <string name="air_quality">Якість повітря:</string>
@@ -49,13 +48,12 @@
     <string name="add_room">Додати приміщення зберігання</string>
     <string name="cancel">Відмінити</string>
     <string name="save">Зберегти</string>
-    <string name="clean_came">Назва клінінгової компанії:</string>
     <string name="pick_serv_name">Оберіть назву сервісу</string>
     <string name="pick_room">Оберіть ідентифікатор кімнати</string>
     <string name="loading">Завантаження...</string>
     <string name="temperature">Температура:</string>
     <string name="capacity">Місткість:</string>
-    <string name="max_capacity">Максимаьна місткість</string>
+    <string name="max_capacity">Максимальна місткість:</string>
     <string name="to_storages">До зберігань</string>
     <string name="start_date">Початок зберігання:</string>
     <string name="amount">Кількість:</string>
@@ -67,4 +65,5 @@
     <string name="redistribute">Перерозподілити</string>
     <string name="are_you_sure_redistribute">Виконати перерозподіл продукції, для якої незадовільний мікроклімат?</string>
     <string name="exit">Вийти із профілю</string>
+    <string name="are_you_sure_delete">Ви впевнені, що бажаєте це видалити?</string>
 </resources>

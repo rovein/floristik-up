@@ -118,7 +118,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="3dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/red"
                 android:text="@string/delete" />
 
     </RelativeLayout>

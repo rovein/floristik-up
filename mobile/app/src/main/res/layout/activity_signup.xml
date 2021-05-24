@@ -7,120 +7,128 @@
     tools:context=".ui.auth.SignUpActivity"
     android:background="@color/light">
 
+    <TextView
+            android:id="@+id/signup_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_title"
+            android:textColor="@color/green"
+            style="@style/custom_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias=".15"/>
+
+    <TextView
+            android:id="@+id/signup_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_new_account"
+            style="@style/custom_subtitle"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/signup_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     <EditText
             android:id="@+id/country"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/country"
-            android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.617" />
+            app:layout_constraintVertical_bias="0.628"
+            android:layout_marginTop="5dp" />
 
     <EditText
             android:id="@+id/confirm_password"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.516"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.503" />
-
-    <TextView
-        android:id="@+id/signup_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_title"
-        style="@style/custom_title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias=".15"/>
-
-    <TextView
-        android:id="@+id/signup_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_new_account"
-        style="@style/custom_subtitle"
-        app:layout_constraintTop_toBottomOf="@id/signup_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintVertical_bias="0.511" />
 
     <EditText
             android:id="@+id/name"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.047" />
+            app:layout_constraintVertical_bias="0.064" />
 
     <EditText
             android:id="@+id/email"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/email"
             app:layout_constraintBottom_toTopOf="@+id/phone"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="5dp" />
 
     <EditText
             android:id="@+id/phone"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.281" />
+            app:layout_constraintVertical_bias="0.281"
+            android:layout_marginTop="5dp" />
 
     <EditText
             android:id="@+id/password"
             style="@style/custom_input"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.394" />
+            app:layout_constraintVertical_bias="0.395"
+            android:layout_marginTop="5dp" />
 
     <Button
             android:id="@+id/signup_button"
             style="@style/custom_button"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/signup"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/signup_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@id/signup_title"
             app:layout_constraintTop_toBottomOf="@id/signup_subtitle"
-            app:layout_constraintVertical_bias="0.775" />
+            app:layout_constraintVertical_bias="0.775"
+            />
 
     <LinearLayout
         android:id="@+id/go_to_signin"
@@ -135,12 +143,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/custom_subtitle_dark"
+            android:textColor="@color/green"
             android:text="@string/already_have_acc" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/custom_subtitle"
+            android:textColor="@color/main_light"
             android:text="@string/login" />
 
     </LinearLayout>

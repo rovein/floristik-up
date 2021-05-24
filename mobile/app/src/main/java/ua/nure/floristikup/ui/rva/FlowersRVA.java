@@ -1,5 +1,7 @@
 package ua.nure.floristikup.ui.rva;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -25,6 +27,7 @@ import ua.nure.floristikup.data.Flower;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
 import ua.nure.floristikup.ui.edit.EditFlowerActivity;
+import ua.nure.floristikup.ui.util.LoadingDialog;
 
 public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolder>{
 
@@ -33,10 +36,12 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
     private JSONPlaceHolderApi apiService;
     private final List<Flower> flowers;
     private String token;
+    LoadingDialog loadingDialog;
 
     public FlowersRVA(Context context, List<Flower> servicesList){
         this.context = context;
         this.flowers = servicesList;
+        this.loadingDialog = new LoadingDialog((Activity) context);
     }
 
     @NotNull
@@ -50,18 +55,27 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull FlowersViewHolder holder, int position) {
-        holder.cardView.setId(flowers.get(position).getId());
-        holder.nameTV.setText(flowers.get(position).getName());
-        holder.colorTV.setText(flowers.get(position).getColor());
-        holder.shelfLifeTV.setText(Integer.toString(flowers.get(position).getShelfLife()));
-        holder.minTempTV.setText( Integer.toString(flowers.get(position).getMinTemperature()));
-        holder.maxTempTV.setText(Integer.toString(flowers.get(position).getMaxTemperature()));
+        Flower flower = flowers.get(position);
+        String nameAndColor = flower.getName() + ", " + flower.getColor();
+
+        holder.cardView.setId(flower.getId());
+        holder.nameTV.setText(flower.getName());
+        holder.colorTV.setText(flower.getColor());
+        holder.shelfLifeTV.setText(Integer.toString(flower.getShelfLife()));
+        holder.minTempTV.setText( Integer.toString(flower.getMinTemperature()));
+        holder.maxTempTV.setText(Integer.toString(flower.getMaxTemperature()));
+        holder.flowerNameLabel.setText(nameAndColor);
 
         holder.editButton.setOnClickListener(v -> editFlower(holder));
 
         holder.deleteButton.setOnClickListener(v -> {
             flowersViewHolder = holder;
-            deleteFlower();
+            new AlertDialog.Builder(this.context)
+                    .setTitle(context.getString(R.string.delete))
+                    .setMessage(context.getString(R.string.are_you_sure_delete))
+                    .setIcon(android.R.drawable.ic_delete)
+                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> deleteFlower())
+                    .setNegativeButton(android.R.string.no, null).show();
         });
     }
 
@@ -82,6 +96,7 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
     }
 
     private void deleteFlower() {
+        loadingDialog.start();
         apiService.deleteFlower(token, flowersViewHolder.cardView.getId()).enqueue(deleteCallback);
     }
 
@@ -91,6 +106,7 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
             if (response.isSuccessful()) {
                 System.out.println(response.body());
                 flowers.remove(flowersViewHolder.getAdapterPosition());
+                notifyItemRemoved(flowersViewHolder.getAdapterPosition());
                 notifyDataSetChanged();
             }
         }
@@ -99,13 +115,14 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
         public void onFailure(Call<Flower> call, Throwable t) {
             System.out.println(t);
             flowers.remove(flowersViewHolder.getAdapterPosition());
-            notifyDataSetChanged();
+            notifyItemRemoved(flowersViewHolder.getAdapterPosition());
+            loadingDialog.dismiss();
         }
     };
 
     static class FlowersViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView nameTV, colorTV, shelfLifeTV, minTempTV, maxTempTV;
+        TextView nameTV, colorTV, shelfLifeTV, minTempTV, maxTempTV, flowerNameLabel;
         Button editButton, deleteButton;
 
         FlowersViewHolder(View itemView) {
@@ -117,6 +134,7 @@ public class FlowersRVA extends RecyclerView.Adapter<FlowersRVA.FlowersViewHolde
             shelfLifeTV = itemView.findViewById(R.id.shelf_life_text);
             minTempTV = itemView.findViewById(R.id.flower_name_text);
             maxTempTV = itemView.findViewById(R.id.max_temp_text);
+            flowerNameLabel = itemView.findViewById(R.id.flower_name_label);
 
             editButton = itemView.findViewById(R.id.edit_flower_btn);
             deleteButton = itemView.findViewById(R.id.delete_flower_btn);

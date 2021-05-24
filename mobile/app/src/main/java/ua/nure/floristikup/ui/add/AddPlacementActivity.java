@@ -52,7 +52,11 @@ public class AddPlacementActivity extends AppCompatActivity {
         mApi = NetworkService.getInstance().getApiService();
         mPlacement = new Placement();
 
-        mCancelButton.setOnClickListener(v -> finish());
+        mCancelButton.setOnClickListener(v -> {
+            Intent intent = new Intent(AddPlacementActivity.this, PlacementsActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         mSaveButton.setOnClickListener(v -> addRoom());
     }

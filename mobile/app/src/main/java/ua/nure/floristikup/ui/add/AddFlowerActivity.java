@@ -52,7 +52,11 @@ public class AddFlowerActivity extends AppCompatActivity {
 
         apiService = NetworkService.getInstance().getApiService();
 
-        mCancelButton.setOnClickListener(v -> finish());
+        mCancelButton.setOnClickListener(v -> {
+            Intent intent = new Intent(AddFlowerActivity.this, FlowersActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         mSaveButton.setOnClickListener(v ->  addService());
     }

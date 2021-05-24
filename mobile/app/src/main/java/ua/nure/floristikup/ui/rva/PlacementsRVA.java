@@ -1,6 +1,8 @@
 package ua.nure.floristikup.ui.rva;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -23,11 +25,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ua.nure.floristikup.R;
 import ua.nure.floristikup.data.FloristShop;
+import ua.nure.floristikup.data.FlowerStorage;
 import ua.nure.floristikup.data.Placement;
+import ua.nure.floristikup.data.SmartDevice;
 import ua.nure.floristikup.network.JSONPlaceHolderApi;
 import ua.nure.floristikup.network.NetworkService;
 import ua.nure.floristikup.ui.edit.EditPlacementActivity;
 import ua.nure.floristikup.ui.storages.StoragesActivity;
+import ua.nure.floristikup.ui.util.LoadingDialog;
 
 public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewHolder>{
 
@@ -36,10 +41,12 @@ public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewH
     private JSONPlaceHolderApi mApi;
     private String token;
     private final List<Placement> mPlacements;
+    LoadingDialog loadingDialog;
 
     public PlacementsRVA(Context context, List<Placement> placementList){
         this.mContext = context;
         this.mPlacements = placementList;
+        this.loadingDialog = new LoadingDialog((Activity) mContext);
     }
 
     @NotNull
@@ -76,7 +83,12 @@ public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewH
 
         holder.mDeleteButton.setOnClickListener(v -> {
             mRoomsViewHolder = holder;
-            deleteRoom();
+            new AlertDialog.Builder(this.mContext)
+                    .setTitle(mContext.getString(R.string.delete))
+                    .setMessage(mContext.getString(R.string.are_you_sure_delete))
+                    .setIcon(android.R.drawable.ic_delete)
+                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> deleteRoom())
+                    .setNegativeButton(android.R.string.no, null).show();
         });
 
     }
@@ -98,6 +110,7 @@ public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewH
     }
 
     private void deleteRoom() {
+        loadingDialog.start();
         mApi.deletePlacement(token, mRoomsViewHolder.mCardView.getId()).enqueue(deleteCallback);
     }
 
@@ -116,6 +129,7 @@ public class PlacementsRVA extends RecyclerView.Adapter<PlacementsRVA.RoomsViewH
             System.out.println(t);
             mPlacements.remove(mRoomsViewHolder.getAdapterPosition());
             notifyItemRemoved(mRoomsViewHolder.getAdapterPosition());
+            loadingDialog.dismiss();
         }
     };
 

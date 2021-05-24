@@ -13,18 +13,6 @@
         android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/create_placement_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="@id/header_bg"
-        app:layout_constraintEnd_toEndOf="@+id/header_bg"
-        app:layout_constraintHorizontal_bias=".8"
-        app:layout_constraintStart_toEndOf="@+id/name_tv"
-        app:layout_constraintTop_toTopOf="@id/header_bg" />
-
     <TextView
         android:id="@+id/name_tv"
         style="@style/custom_title"
@@ -37,12 +25,28 @@
         app:layout_constraintStart_toStartOf="@+id/header_bg"
         app:layout_constraintTop_toTopOf="@id/header_bg" />
 
+    <Button
+            android:id="@+id/create_placement_btn"
+            android:layout_width="331dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/add_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_bg" />
+
+
     <ScrollView
         android:id="@+id/rooms_sv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_bg">
+        app:layout_constraintTop_toBottomOf="@+id/create_placement_btn">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rooms_rv"

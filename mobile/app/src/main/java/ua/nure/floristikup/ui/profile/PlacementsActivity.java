@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,8 +46,7 @@ public class PlacementsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_placements);
 
         mRecyclerView = findViewById(R.id.rooms_rv);
-        ImageButton backButton = findViewById(R.id.back_btn);
-        ImageButton addButton = findViewById(R.id.create_placement_btn);
+        Button addButton = findViewById(R.id.create_placement_btn);
 
         apiService = NetworkService.getInstance().getApiService();
 

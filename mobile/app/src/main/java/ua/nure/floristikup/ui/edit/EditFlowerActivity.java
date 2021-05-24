@@ -58,6 +58,8 @@ public class EditFlowerActivity extends AppCompatActivity {
         });
 
         mCancelButton.setOnClickListener(v -> {
+            Intent intent = new Intent(EditFlowerActivity.this, FlowersActivity.class);
+            startActivity(intent);
             finish();
         });
     }
@@ -109,8 +111,6 @@ public class EditFlowerActivity extends AppCompatActivity {
 
         loadingDialog.start();
         apiService.updateFlower(token, mFlower).enqueue(editFlowerCallback);
-        Intent intent = new Intent(EditFlowerActivity.this, FlowersActivity.class);
-        startActivity(intent);
     }
 
     Callback<Flower> editFlowerCallback = new Callback<Flower>() {
@@ -119,6 +119,8 @@ public class EditFlowerActivity extends AppCompatActivity {
             if (response.isSuccessful()) {
                 System.out.println(response.body());
                 loadingDialog.dismiss();
+                Intent intent = new Intent(EditFlowerActivity.this, FlowersActivity.class);
+                startActivity(intent);
                 finish();
             }
         }

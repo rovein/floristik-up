@@ -31,7 +31,6 @@
     <string name="room_number">Room number:</string>
     <string name="rooms">Placements</string>
     <string name="flowers">Flowers</string>
-    <string name="search">Company search</string>
     <string name="about">Here is your profile`s info</string>
     <string name="edit">Edit</string>
     <string name="air_quality">Air quality:</string>
@@ -50,7 +49,6 @@
     <string name="add_room">Add placement</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
-    <string name="clean_came">Cleaning name:</string>
     <string name="pick_serv_name">Pick flower name</string>
     <string name="pick_room">Pick placement id</string>
     <string name="loading">Loading…</string>
@@ -68,4 +66,5 @@
     <string name="redistribute">Redistribute</string>
     <string name="are_you_sure_redistribute">Perform redistribution for flowers with unsatisfactory microclimate?</string>
     <string name="exit">Exit</string>
+    <string name="are_you_sure_delete">Are you sure you want to delete this?</string>
 </resources>

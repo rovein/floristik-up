@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#ffa500</color>
+    <color name="red">#FF0000</color>
+    <color name="khaki">#808000</color>
 
     <color name="light">#fbfbfb</color>
     <color name="main_light">#3569A1</color>

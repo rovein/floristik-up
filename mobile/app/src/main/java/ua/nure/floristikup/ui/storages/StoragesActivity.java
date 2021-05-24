@@ -57,7 +57,6 @@ public class StoragesActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.storages_rv);
         mBackButton = findViewById(R.id.back_btn);
-        addButton =  findViewById(R.id.create_storage_btn);
         redistributeButton = findViewById(R.id.redistribute_button);
 
         apiService = NetworkService.getInstance().getApiService();
@@ -117,7 +116,7 @@ public class StoragesActivity extends AppCompatActivity {
 
             String result = resultMessage.toString();
             if (result.isEmpty()) {
-                result = "Перерозподіл не виконано";
+                result = "Перерозподіл не виконано (відсутнє приміщення з належними умовами або достатньою місткістю)";
             }
 
             loadingDialog.dismiss();
@@ -126,7 +125,9 @@ public class StoragesActivity extends AppCompatActivity {
                     .setMessage(result)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
-                        startActivity(new Intent(StoragesActivity.this, PlacementsActivity.class));
+                        if (!resultMessage.toString().isEmpty()) {
+                            startActivity(new Intent(StoragesActivity.this, PlacementsActivity.class));
+                        }
                     }).show();
         }
 

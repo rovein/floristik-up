@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,8 +46,7 @@ public class FlowersActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.flowers_rv);
 
-        ImageButton mBackButton = findViewById(R.id.back_btn);
-        ImageButton mAddButton = findViewById(R.id.add_flower_btn);
+        Button mAddButton = findViewById(R.id.add_flower_btn);
 
         apiService = NetworkService.getInstance().getApiService();
 

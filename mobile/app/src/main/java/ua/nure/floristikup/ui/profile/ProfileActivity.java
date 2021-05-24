@@ -152,7 +152,7 @@ public class ProfileActivity extends AppCompatActivity {
         mPhoneTV.setVisibility(View.GONE);
         mCountryTV.setVisibility(View.GONE);
         passwordTV.setVisibility(View.VISIBLE);
-        confirmPasswordET.setVisibility(View.VISIBLE);
+        confirmPasswordTV.setVisibility(View.VISIBLE);
 
         mNameET.setVisibility(View.VISIBLE);
         mEmailET.setVisibility(View.VISIBLE);
