@@ -10,10 +10,10 @@
     <string name="city">City:</string>
     <string name="street">Street:</string>
     <string name="house">House:</string>
-    <string name="email">Email</string>
-    <string name="phone">Phone</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm</string>
+    <string name="email">Email:</string>
+    <string name="phone">Phone:</string>
+    <string name="password">Password:</string>
+    <string name="confirm_password">Confirm:</string>
     <string name="login">Login</string>
     <string name="signup">Signup</string>
     <string name="dont_have_acc">Don`t have an account?</string>
@@ -32,7 +32,7 @@
     <string name="rooms">Placements</string>
     <string name="flowers">Flowers</string>
     <string name="search">Company search</string>
-    <string name="about">About</string>
+    <string name="about">Here is your profile`s info</string>
     <string name="edit">Edit</string>
     <string name="air_quality">Air quality:</string>
     <string name="humidity">Humidity:</string>

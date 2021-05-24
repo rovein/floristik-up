@@ -16,18 +16,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/back_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toBottomOf="@id/header_bg"
-        app:layout_constraintEnd_toStartOf="@+id/name_tv"
-        app:layout_constraintHorizontal_bias=".02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/header_bg" />
-
-    <ImageButton
         android:id="@+id/add_flower_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"

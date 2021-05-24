@@ -31,11 +31,9 @@ import ua.nure.floristikup.util.ValidationUtils;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView mNameTV, mEmailTV, mPhoneTV, mCountryTV;
+    TextView mNameTV, mEmailTV, mPhoneTV, mCountryTV, passwordTV, confirmPasswordTV;
     EditText mNameET, mEmailET, mPhoneET, mCountryET, mPasswordET, confirmPasswordET;
-    Button editButton;
-
-    ImageView mBack, mLogOut;
+    Button editButton, mLogOut;
 
     Context context;
     LoadingDialog loadingDialog = new LoadingDialog(this);
@@ -61,6 +59,8 @@ public class ProfileActivity extends AppCompatActivity {
         mNameTV = findViewById(R.id.profile_name);
         mPhoneTV = findViewById(R.id.profile_phone);
         mCountryTV = findViewById(R.id.profile_country);
+        passwordTV = findViewById(R.id.password_label);
+        confirmPasswordTV = findViewById(R.id.confirm_password_label);
 
         mNameET = findViewById(R.id.profile_name_edit);
         mEmailET = findViewById(R.id.profile_email_edit);
@@ -140,6 +140,8 @@ public class ProfileActivity extends AppCompatActivity {
         mEmailTV.setVisibility(View.VISIBLE);
         mPhoneTV.setVisibility(View.VISIBLE);
         mCountryTV.setVisibility(View.VISIBLE);
+        passwordTV.setVisibility(View.GONE);
+        confirmPasswordTV.setVisibility(View.GONE);
     }
 
     private void showET() {
@@ -149,6 +151,8 @@ public class ProfileActivity extends AppCompatActivity {
         mEmailTV.setVisibility(View.GONE);
         mPhoneTV.setVisibility(View.GONE);
         mCountryTV.setVisibility(View.GONE);
+        passwordTV.setVisibility(View.VISIBLE);
+        confirmPasswordET.setVisibility(View.VISIBLE);
 
         mNameET.setVisibility(View.VISIBLE);
         mEmailET.setVisibility(View.VISIBLE);
