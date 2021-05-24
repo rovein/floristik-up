@@ -49,15 +49,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/flowers_rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:paddingBottom="56dp" />
     </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_flowers"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="0dp"
             android:background="@color/green"
+            android:layout_height="56dp"
             app:menu="@layout/bottom_navigation_menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
