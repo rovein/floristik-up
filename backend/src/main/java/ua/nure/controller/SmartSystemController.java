@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/device")
+@RequestMapping("/smart-system")
 @Api(tags = "Smart Device")
 public class SmartSystemController {
 

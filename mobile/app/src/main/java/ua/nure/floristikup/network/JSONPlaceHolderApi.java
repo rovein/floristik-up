@@ -67,7 +67,7 @@ public interface JSONPlaceHolderApi {
     @POST("/flower-storages")
     Call<FlowerStorage> createFlowerStorage(@Header("Authorization") String token, @Body FlowerStorage flowerStorage);
 
-    @POST("/device")
+    @POST("/smart-system")
     Call<ArrayList<RedistributionResponseDto>> redistribute(@Header("Authorization") String token, @Body SmartDevice smartDevice);
 
     @DELETE("/flower-storages/{id}")

@@ -252,7 +252,7 @@ class PickStorageCard extends React.Component {
   redistribute(storage) {
     const {t} = this.props;
     this.setState({isLoaded: false})
-    fetch(`${url}/device`, {
+    fetch(`${url}/smart-system`, {
       method: "post",
       headers: {
         Accept: "application/json",
