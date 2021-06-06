@@ -154,6 +154,7 @@ class AddStorageForm extends React.Component {
           />
           <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
           <Button
+            style={{marginTop: '15px'}}
             text={t("Add")}
             disabled={this.state.buttonDisabled}
             onClick={() => this.checkCred()}
