@@ -73,6 +73,7 @@ class EditForm extends React.Component {
             country: result.country,
             id: result.id,
             company: result,
+            isLocked: result.isLocked
           });
         },
         (error) => {
@@ -181,6 +182,7 @@ class EditForm extends React.Component {
         country: this.state.country,
         id: this.state.id,
         phoneNumber: this.state.phone,
+        isLocked: this.state.isLocked,
         role: role,
       };
 
@@ -255,6 +257,7 @@ class EditForm extends React.Component {
           )}
           <Input
             type="text"
+            disabled = {true}
             placeholder={t("Email")}
             value={this.state.email ? this.state.email : ""}
             onChange={(val) => this.setInputValue("email", val)}
