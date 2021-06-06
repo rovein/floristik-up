@@ -3,7 +3,7 @@
     <string name="signin_title">Вітаємо</string>
     <string name="signup_title">Реєстрація</string>
     <string name="sign_in_to_continue">Щоб продовжити, увійдіть до системи</string>
-    <string name="create_new_account">Створення облікового запису користувача</string>
+    <string name="create_new_account">Створення облікового запису</string>
     <string name="name">Назва:</string>
     <string name="country">Країна:</string>
     <string name="city">Місто:</string>
@@ -22,7 +22,7 @@
     <string name="profile">Профіль</string>
     <string name="flower_name">Назва:</string>
     <string name="color">Колір:</string>
-    <string name="shelf_life">Строк зберігання рослини (дні):</string>
+    <string name="shelf_life">Строк зберігання рослини:</string>
     <string name="min_temperature">Мінімальна температура:</string>
     <string name="max_temperature">Максимальна температура:</string>
     <string name="flower_storages">Зберігання квітів</string>
